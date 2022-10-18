@@ -43,6 +43,10 @@ public class InscriptionCoureur {
         }
     }
 
+    public Hashtable<Etape, ClassementCoureur> getClassementEta() {
+        return classementEta;
+    }
+
     
     
     
