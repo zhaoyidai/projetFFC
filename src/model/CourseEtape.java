@@ -29,5 +29,9 @@ public class CourseEtape extends Course {
     }
     
     // Les méthodes de la classe CourseEtape
+    public void ajouterEtape(Composer ordre, Etape etape){
+        this.etapes.put(ordre, etape);
+    }
+    
     
 }
