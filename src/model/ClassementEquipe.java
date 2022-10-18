@@ -12,8 +12,8 @@ public class ClassementEquipe {
     protected int classementE;
     protected float tempsE;
     
-    public ClassementEquipe(){
-        
+    public ClassementEquipe(float tempsE){
+        this.tempsE = tempsE;
     }
 
     public int getClassementE() {
@@ -28,9 +28,7 @@ public class ClassementEquipe {
         return tempsE;
     }
 
-    public void setTempsE(float tempsE) {
-        this.tempsE = tempsE;
-    }
+
     
     
 }

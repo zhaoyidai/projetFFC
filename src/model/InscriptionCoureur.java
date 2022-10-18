@@ -43,6 +43,10 @@ public class InscriptionCoureur {
         }
     }
 
+    public Hashtable<Etape, ClassementCoureur> getClassementEta() {
+        return classementEta;
+    }
+
     
     
     
@@ -161,5 +165,13 @@ public class InscriptionCoureur {
                     break;
             }
         }
+    }
+    
+    public Hashtable getCols(){
+        return this.cols;
+    }
+    
+    public Hashtable getSprints(){
+        return this.sprints;
     }
 }

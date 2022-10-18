@@ -19,4 +19,8 @@ public class ClassementSprint {
     public void setPointSprint(int pointSprint){
         this.pointSprint = pointSprint;
     }
+    
+    public int getPointSprint(){
+        return this.pointSprint;
+    }
 }

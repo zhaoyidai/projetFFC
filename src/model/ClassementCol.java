@@ -20,4 +20,7 @@ public class ClassementCol {
         this.pointCol = pointCol;
     }
     
+    public int getPointCol(){
+        return this.pointCol;
+    }
 }
