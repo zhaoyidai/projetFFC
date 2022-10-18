@@ -18,13 +18,11 @@ public class Course {
     protected String typeCourse;
     
     //Constructeur
-    public Course(String nomCourse, String villeDepartC, String villeArriveeC, String paysDepartC, String paysArriveeC, String typeCourse){
-        this.nomCourse=nomCourse;
-        this.villeDepartC=villeDepartC;
-        this.villeArriveeC=villeArriveeC;
-        this.paysDepartC=paysDepartC;
-        this.paysArriveeC=paysArriveeC;
-        this.typeCourse=typeCourse;
+    public Course(){
+    
     }
+    
+    //Les méthodes de la classe Course
+    
     
 }
