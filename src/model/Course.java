@@ -9,5 +9,22 @@ package model;
  * @author mc
  */
 public class Course {
+    //Attributs
+    protected String nomCourse;
+    protected String villeDepartC;
+    protected String villeArriveeC;
+    protected String paysDepartC;
+    protected String paysArriveeC;
+    protected String typeCourse;
+    
+    //Constructeur
+    public Course(String nomCourse, String villeDepartC, String villeArriveeC, String paysDepartC, String paysArriveeC, String typeCourse){
+        this.nomCourse=nomCourse;
+        this.villeDepartC=villeDepartC;
+        this.villeArriveeC=villeArriveeC;
+        this.paysDepartC=paysDepartC;
+        this.paysArriveeC=paysArriveeC;
+        this.typeCourse=typeCourse;
+    }
     
 }
