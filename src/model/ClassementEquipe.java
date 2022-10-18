@@ -10,8 +10,27 @@ package model;
  */
 public class ClassementEquipe {
     protected int classementE;
+    protected float tempsE;
     
-    public ClassementEquipe(int classementE){
+    public ClassementEquipe(){
+        
+    }
+
+    public int getClassementE() {
+        return classementE;
+    }
+
+    public void setClassementE(int classementE) {
         this.classementE = classementE;
     }
+
+    public float getTempsE() {
+        return tempsE;
+    }
+
+    public void setTempsE(float tempsE) {
+        this.tempsE = tempsE;
+    }
+    
+    
 }
