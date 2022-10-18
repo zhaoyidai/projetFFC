@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.util.Hashtable;
 
 /**
  *
@@ -10,5 +11,23 @@ package model;
  */
 public class CourseEtape extends Course {
     //Attributs
-    protected HashTable<Etape> etapes;
+    protected Hashtable<OrdreEtape,Etape> etapes;
+    
+    //Constructeur
+
+    
+    
+    public CourseEtape(String nomCourse, String villeDepartC, String villeArriveeC, String paysDepartC, String paysArriveeC, String typeCourse){
+        super();
+        super.nomCourse=nomCourse;
+        super.paysDepartC=paysDepartC;
+        super.paysArriveeC=this.paysArriveeC;
+        super.villeDepartC=villeDepartC;
+        super.villeArriveeC=villeArriveeC;
+        super.typeCourse=typeCourse;
+        this.etapes = new Hashtable<OrdreEtape, Etape>();
+    }
+    
+    // Les méthodes de la classe CourseEtape
+    
 }
