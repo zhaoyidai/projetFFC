@@ -11,7 +11,7 @@ import java.util.Hashtable;
  */
 public class CourseEtape extends Course {
     //Attributs
-    protected Hashtable<OrdreEtape,Etape> etapes;
+    protected Hashtable<Composer,Etape> etapes;
     
     //Constructeur
 
@@ -25,7 +25,7 @@ public class CourseEtape extends Course {
         super.villeDepartC=villeDepartC;
         super.villeArriveeC=villeArriveeC;
         super.typeCourse=typeCourse;
-        this.etapes = new Hashtable<OrdreEtape, Etape>();
+        this.etapes = new Hashtable<Composer, Etape>();
     }
     
     // Les méthodes de la classe CourseEtape

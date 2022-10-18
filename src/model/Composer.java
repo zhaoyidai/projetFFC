@@ -8,10 +8,10 @@ package model;
  *
  * @author utiae
  */
-public class OrdreEtape {
-    protected int ordre;
+public class Composer {
+    protected int ordreEtape;
     
-    public OrdreEtape(int ordre){
-        this.ordre=ordre;
+    public Composer(int ordreEtape){
+        this.ordreEtape=ordreEtape;
     }
 }
