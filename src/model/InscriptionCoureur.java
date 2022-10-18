@@ -170,4 +170,12 @@ public class InscriptionCoureur {
             }
         }
     }
+    
+    public Hashtable getCols(){
+        return this.cols;
+    }
+    
+    public Hashtable getSprints(){
+        return this.sprints;
+    }
 }
