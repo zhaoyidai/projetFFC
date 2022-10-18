@@ -15,14 +15,21 @@ public class Edition {
     protected Coureur meilleurSprinteur;
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
-    protected Course course;
     
     //Constructeur
     public Edition(String dateDebutEdition, String dateFinEdition,Course Course){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
-        this.course=course;
     }
+    
+    public String getDateDebutEdition(){
+        return this.dateDebutEdition;
+    }
+    
+    public String getDateFinEdition(){
+        return this.dateFinEdition;
+    }
+ 
     
     //Les méthodes de la classe Edition
     //Retourne l'édition de course
@@ -32,7 +39,7 @@ public class Edition {
     
     //Affiche les informations d'une édition
     public void afficherEdition(){
-        System.out.println("Edition de la course " + this.course.getNomCourse());
+        System.out.println("Edition de la course " + this.dateDebutEdition);
     }
     
     //Inscrit une équipe à l'édition de course
@@ -57,14 +64,18 @@ public class Edition {
     }
     
     //Retourne le classement général provisoire des coureurs à l'édition de la course
-    /*public int[] getClassementGC(){
+    public int[] getClassementGC(){
         
-    }*/
+        return null;
+        
+    }
     
     //Retourne le classement général provisoire des équipes à l'édition de la course
-    //public int[] getClassementGE(){
+    public int[] getClassementGE(){
         
-    //}
+        return null;
+        
+    }
     
     //Modifie les informations d'une édition de course
     public void modifEdition(){
@@ -72,9 +83,11 @@ public class Edition {
     }
     
     //Retourne la liste des équipes qui participent à l'édition de course
-    //public Equipe[] obtenirListeEquipes(){
+    public InscriptionEquipe[] obtenirListeEquipes(){
            
-    //}
+        return null;
+           
+    }
     
     //Enregistrer le classement générale des coureurs
     public void enregistrerClassementGC(){
