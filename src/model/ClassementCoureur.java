@@ -13,16 +13,26 @@ import java.util.ArrayList;
 public class ClassementCoureur {
     protected int classementC;
     protected float temps;
-    protected ArrayList<>;
+    
     
     //hashtable de edition et coureur
     
-    public ClassementCoureur(int classementC, float temps){
-        this.classementC = classementC;
+    public ClassementCoureur(float temps){
+//        this.classementC = classementC;
         this.temps = temps;
     }
 
-    public void saisirTemps(){
-
+    public void setClassementC(int classementC) {
+        this.classementC = classementC;
     }
+
+    public int getClassementC() {
+        return classementC;
+    }
+
+    public float getTemps() {
+        return temps;
+    }
+    
+
 }
