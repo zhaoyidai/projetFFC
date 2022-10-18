@@ -86,8 +86,9 @@ public class Edition {
     }
     
     //Modifie les informations d'une édition de course
-    public void modifEdition(){
-        
+    public void modifEdition(String dateDebut, String dateFin){
+        this.dateDebutEdition=dateDebut;
+        this.dateFinEdition=dateFin;
     }
     
     //Retourne la liste des équipes qui participent à l'édition de course
