@@ -27,6 +27,7 @@ public class InscriptionCoureur {
     public void accepterRefuser(boolean yn){
         if(yn==true){
             this.etatCoureur="dans une équipe";
+            invitation.coureurs.add(this);
         }
         else{
             this.invitation=null;
