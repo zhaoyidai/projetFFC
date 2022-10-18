@@ -29,7 +29,7 @@ public class Etape {
     //Les méthodes de la classe Etape
     
     public void afficherTout(){
-        
+        System.out.println("Ville départ "+this.villeDepartEtape + " Ville arrivée "+ this.villeArriveeEtape +" Distance : "+ this.distance );
     }
     
     //retourne tous les sprints de l'étape

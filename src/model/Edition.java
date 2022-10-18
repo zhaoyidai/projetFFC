@@ -39,7 +39,8 @@ public class Edition {
     
     //Affiche les informations d'une édition
     public void afficherEdition(){
-        System.out.println("Edition de la course " + this.dateDebutEdition);
+        System.out.println("Date début édition " + this.getDateDebutEdition());
+        System.out.println("Date fin édition " + this.getDateFinEdition());
     }
     
     //Inscrit une équipe à l'édition de course
@@ -53,9 +54,11 @@ public class Edition {
     }
     
     //Retourne la liste des coureurs de l'édition de course
-    /*public InscriptionCoureur[] obtenirlisteCoureurs(){
+    public InscriptionCoureur[] obtenirlisteCoureurs(){
         
-    }*/
+        return null;
+        
+    }
     
     //Supprime l'inscription d'une équipe à l'édition de course
     public void supprimerEquipe(){
