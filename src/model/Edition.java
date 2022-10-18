@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author utiae
@@ -16,12 +18,16 @@ public class Edition {
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
     protected Course course;
+    protected ArrayList<InscriptionEquipe> equipes;
+    protected ArrayList<InscriptionCoureur> coureurs;
     
     //Constructeur
     public Edition(String dateDebutEdition, String dateFinEdition,Course course){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
         this.course=course;
+        this.coureurs= new ArrayList<InscriptionCoureur>();
+        this.equipes= new ArrayList<InscriptionEquipe>();
         this.course.editions.add(this);
     }
     
@@ -45,23 +51,23 @@ public class Edition {
         System.out.println("Edition de la course "+ this.course.getNomCourse());
         System.out.println("Date début édition " + this.getDateDebutEdition());
         System.out.println("Date fin édition " + this.getDateFinEdition());
-        this.course.afficherEtapes();;
+        this.course.afficherEtapes();
     }
     
     //Inscrit une équipe à l'édition de course
-    public void inscrireEquipe(){
-        
+    public void inscrireEquipe(InscriptionEquipe equipe){
+        this.equipes.add(equipe);
     }
     
     //Inscrit un coureur à l'édition de course
-    public void inscrireCoureur(){
-        
+    public void inscrireCoureur(InscriptionCoureur coureur){
+        this.coureurs.add(coureur);
     }
     
     //Retourne la liste des coureurs de l'édition de course
-    public InscriptionCoureur[] obtenirlisteCoureurs(){
+    public ArrayList<InscriptionCoureur> obtenirlisteCoureurs(){
         
-        return null;
+        return this.coureurs;
         
     }
     
@@ -86,14 +92,15 @@ public class Edition {
     }
     
     //Modifie les informations d'une édition de course
-    public void modifEdition(){
-        
+    public void modifEdition(String dateDebut, String dateFin){
+        this.dateDebutEdition=dateDebut;
+        this.dateFinEdition=dateFin;
     }
     
     //Retourne la liste des équipes qui participent à l'édition de course
-    public InscriptionEquipe[] obtenirListeEquipes(){
+    public ArrayList<InscriptionEquipe> obtenirListeEquipes(){
            
-        return null;
+        return this.equipes;
            
     }
     
