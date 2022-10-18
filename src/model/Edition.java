@@ -15,11 +15,14 @@ public class Edition {
     protected Coureur meilleurSprinteur;
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
+    protected Course course;
     
     //Constructeur
-    public Edition(String dateDebutEdition, String dateFinEdition,Course Course){
+    public Edition(String dateDebutEdition, String dateFinEdition,Course course){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
+        this.course=course;
+        this.course.editions.add(this);
     }
     
     public String getDateDebutEdition(){
@@ -39,8 +42,10 @@ public class Edition {
     
     //Affiche les informations d'une édition
     public void afficherEdition(){
+        System.out.println("Edition de la course "+ this.course.getNomCourse());
         System.out.println("Date début édition " + this.getDateDebutEdition());
         System.out.println("Date fin édition " + this.getDateFinEdition());
+        this.course.afficherEtapes();;
     }
     
     //Inscrit une équipe à l'édition de course
