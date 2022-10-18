@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package Model;
 
 /**
  *
- * @author mc
+ * @author utiae
  */
 public class Etape {
     //Attributs
@@ -19,7 +19,7 @@ public class Etape {
         this.villeArriveeEtape=villeArriveeEtape;
         this.villeDepartEtape=villeDepartEtape;
         this.distance=distance;
-    }
+}
     
     //Les méthodes de la classe Etape
     
