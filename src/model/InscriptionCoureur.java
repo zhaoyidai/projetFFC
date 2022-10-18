@@ -22,6 +22,7 @@ public class InscriptionCoureur {
     //instantiation de col et sprint dans inscriptioncoureur 
     protected Hashtable<Col, ClassementCol>cols;
     protected Hashtable<Sprint, ClassementSprint>sprints;
+    protected Hashtable<Etape,ClassementCoureur> classementEta;
     
     public InscriptionCoureur(){
         this.dateInsC= new Date();

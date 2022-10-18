@@ -5,7 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.Hashtable;
 
 /**
  *
@@ -22,8 +24,10 @@ public class InscriptionEquipe {
     protected String contactCor;
     protected ArrayList<InscriptionCoureur> coureurs;
     protected ArrayList<Vehicule> vehicules;
+    protected Hashtable<Etape,ClassementEquipe> classementE;
     
     public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteC,String contactCor){
+        this.classementE = new Hashtable();
         this.dateInsE= new Date();
         this.numE=ID_GENE;
         ID_GENE++;
@@ -50,13 +54,22 @@ public class InscriptionEquipe {
         ic.invitation=this;
     }
     
+    public void calculerTempsEEtape(Etape e){
+//        trouver le temps total du premier 3
+        ClassementEquipe clasE=new ClassementEquipe();
+        
+        ArrayList<Float> premier3=new ArrayList();
+        for(int i=0;i<3;i++){
+            premier3.add(coureurs.get(i).classementEta.get(e).getTemps());
+        }
+        premier3.sort(Comparator.naturalOrder());
+        for(int i=3;i<coureurs.size();i++){
+            
+            
+        }
+    }
     
-    
-    
-    
-    
-    
-    
+ 
     
     
     
