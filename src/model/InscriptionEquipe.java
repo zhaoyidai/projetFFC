@@ -21,7 +21,7 @@ public class InscriptionEquipe {
     protected Date dateInsE;
     protected String contactCor;
     protected ArrayList<InscriptionCoureur> coureurs;
-    //protected ArrayList<Vehicule> vehicules;
+    protected ArrayList<Vehicule> vehicules;
     
     public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteC,String contactCor){
         this.dateInsE= new Date();
@@ -39,13 +39,13 @@ public class InscriptionEquipe {
 //        Vehicule v1=new Vehicule(numV,marqueV,nomConducteur,prenomConducteur,numPermis);
 //        vehicules.add(v1);
 //    }
-    /*public void ajouterVehicule(Vehicule v1){
+    public void ajouterVehicule(Vehicule v1){
         
         vehicules.add(v1);
-    }*/
-    public void ajouterCoureur(InscriptionCoureur ic){
-        coureurs.add(ic);
     }
+//    public void ajouterCoureur(InscriptionCoureur ic){
+//        coureurs.add(ic);
+//    }
     public void inviterCoureur(InscriptionCoureur ic){
         ic.invitation=this;
     }

@@ -5,6 +5,7 @@
 package model;
 
 import java.util.Date;
+import java.util.Hashtable;
 
 /**
  *
@@ -18,15 +19,23 @@ public class InscriptionCoureur {
     protected Date dateInsC;
     protected InscriptionEquipe invitation;
     
+    //instantiation de col et sprint dans inscriptioncoureur 
+    protected Hashtable<Col, ClassementCol>cols;
+    protected Hashtable<Sprint, ClassementSprint>sprints;
+    
     public InscriptionCoureur(){
         this.dateInsC= new Date();
         this.etatCoureur="en attente d’invitation";
         this.numInsCoureur=ID_GEN1;
         ID_GEN1++;
+        this.cols = new Hashtable<Col, ClassementCol>();
+        this.sprints = new Hashtable<Sprint, ClassementSprint>();
+
     }
     public void accepterRefuser(boolean yn){
         if(yn==true){
             this.etatCoureur="dans une équipe";
+            invitation.coureurs.add(this);
         }
         else{
             this.invitation=null;
@@ -66,4 +75,91 @@ public class InscriptionCoureur {
         return numInsCoureur;
     }
     
+    public void creerClassementSprint(int ordreSprint, Sprint sprints){
+        ClassementSprint classSprint = new ClassementSprint(ordreSprint);
+        this.sprints.put(sprints, classSprint);
+        
+        if(sprints.getSprintFinal()== false){
+            switch (ordreSprint){
+                
+                case 1:
+                    classSprint.setPointSprint(5);
+                    break;
+                case 2:
+                    classSprint.setPointSprint(3);
+                    break;
+                case 3:
+                    classSprint.setPointSprint(2);
+                    break;
+                case 4:
+                    classSprint.setPointSprint(1);
+                    break;
+                default:
+                    break;
+            }
+        }else{
+                    
+            switch (ordreSprint){
+                
+                case 1:
+                    classSprint.setPointSprint(10);
+                    break;
+                case 2:
+                    classSprint.setPointSprint(6);
+                    break;
+                case 3:
+                    classSprint.setPointSprint(4);
+                    break;
+                case 4:
+                    classSprint.setPointSprint(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+    public void creerClassementCol(int ordreCol, Col cols){
+        ClassementCol classCol = new ClassementCol(ordreCol);
+        this.cols.put(cols, classCol);
+        
+        if(cols.getColFinal()== false){
+            switch (ordreCol){
+                
+                case 1:
+                    classCol.setPointCol(5);
+                    break;
+                case 2:
+                    classCol.setPointCol(3);
+                    break;
+                case 3:
+                    classCol.setPointCol(2);
+                    break;
+                case 4:
+                    classCol.setPointCol(1);
+                    break;
+                default:
+                    break;
+                }
+        }else{
+                switch (ordreCol){
+                
+                case 1:
+                    classCol.setPointCol(10);
+                    break;
+                case 2:
+                    classCol.setPointCol(6);
+                    break;
+                case 3:
+                    classCol.setPointCol(4);
+                    break;
+                case 4:
+                    classCol.setPointCol(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+    
+
 }

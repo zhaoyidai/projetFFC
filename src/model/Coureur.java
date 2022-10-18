@@ -14,7 +14,7 @@ public class Coureur {
     public static int ID_GEN=0;
     protected String nomCoureur;
     protected String prenomCoureur;
-    protected Calendar dateNaissance;
+    protected Calendar dateNaissance=Calendar.getInstance();
     protected String groupeSanguin;
     protected String rhesus;
     protected String nationaliteC;

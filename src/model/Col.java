@@ -24,5 +24,4 @@ public class Col {
     public boolean getColFinal(){
         return this.colFinal;
     }
-
 }
