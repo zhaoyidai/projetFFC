@@ -51,7 +51,10 @@ public class InscriptionEquipe {
 //        coureurs.add(ic);
 //    }
     public void inviterCoureur(InscriptionCoureur ic){
-        ic.invitation=this;
+        if(this.coureurs.size()<=10){
+            ic.invitation=this;
+        }
+        
     }
     
     public void calculerTempsEEtape(Etape e){
@@ -90,6 +93,10 @@ public class InscriptionEquipe {
         
         this.classementE.put(e,ce1);
         
+    }
+
+    public Hashtable<Etape, ClassementEquipe> getClassementE() {
+        return classementE;
     }
     
  
