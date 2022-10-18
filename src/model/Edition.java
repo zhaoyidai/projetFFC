@@ -12,13 +12,16 @@ public class Edition {
     //Attributs
     protected String dateDebutEdition;
     protected String dateFinEdition;
-    /*protected Coureur meilleurSprinteur;
+    protected Coureur meilleurSprinteur;
     protected Coureur meilleurGrimpeur;
-    protected Coureur meilleurJeune;*/
+    protected Coureur meilleurJeune;
+    protected Course course;
     
     //Constructeur
-    public Edition(){
-        
+    public Edition(String dateDebutEdition, String dateFinEdition,Course Course){
+        this.dateDebutEdition=dateDebutEdition;
+        this.dateFinEdition=dateFinEdition;
+        this.course=course;
     }
     
     //Les méthodes de la classe Edition
@@ -29,7 +32,7 @@ public class Edition {
     
     //Affiche les informations d'une édition
     public void afficherEdition(){
-        
+        System.out.println("Edition de la course " + this.course.getNomCourse());
     }
     
     //Inscrit une équipe à l'édition de course
