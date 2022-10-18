@@ -16,4 +16,8 @@ public class ClassementCol {
         this.ordreCol = ordreCol;
     }
     
+    public void setPointCol(int pointCol){
+        this.pointCol = pointCol;
+    }
+    
 }

@@ -9,8 +9,8 @@ package model;
  * @author zdai2
  */
 public class Sprint {
-    private int codeSprint;
-    private boolean sprintFinal;
+    protected int codeSprint;
+    protected boolean sprintFinal;
     
     public Sprint (int codeSprint, boolean sprintFinal){
         this.codeSprint=codeSprint;

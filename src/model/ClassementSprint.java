@@ -16,4 +16,7 @@ public class ClassementSprint {
         this.ordreSprint = ordreSprint;
     }
     
+    public void setPointSprint(int pointSprint){
+        this.pointSprint = pointSprint;
+    }
 }
