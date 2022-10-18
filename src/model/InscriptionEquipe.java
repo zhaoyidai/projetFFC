@@ -46,6 +46,9 @@ public class InscriptionEquipe {
     public void ajouterCoureur(InscriptionCoureur ic){
         coureurs.add(ic);
     }
+    public void inviterCoureur(InscriptionCoureur ic){
+        ic.invitation=this;
+    }
     
     
     
