@@ -8,21 +8,21 @@ package model;
  *
  * @author HDiana
  */
-public class ClassementGE {
-    protected int classementGE;
-    protected String etatGE;
+public class ClassementGC {
+    protected int classementGC;
+    protected String etatGC;
     
-    public ClassementGE(int classementGE, String etatGE){
-        this.classementGE = classementGE;
-        this.etatGE = etatGE;
+    public ClassementGC(int classementGC, String etatGC){
+        this.classementGC = classementGC;
+        this.etatGC = etatGC;
     }
     
-    public void afficherClassement(){
+    public void afficherClassementGC(){
         
     }
     
-    public int getClassement(){
-        return classementGE;
+    public int getClassementGC(){
+        return classementGC;
     }
     
     public void validerClassement(){
