@@ -9,5 +9,20 @@ package model;
  * @author zdai2
  */
 public class Sprint {
+    private int codeSprint;
+    private boolean sprintFinal;
     
+    public Sprint (int codeSprint, boolean sprintFinal){
+        this.codeSprint=codeSprint;
+        this.sprintFinal=sprintFinal;
+    }
+    
+    public int getCodeSprint(){
+        return this.codeSprint;
+    }
+    
+    public boolean getSprintFinal(){
+        return this.sprintFinal;
+    }
+
 }
