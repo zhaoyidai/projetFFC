@@ -121,5 +121,42 @@ public class Edition {
         
     }
     
+    public void setMeilleurSprinteur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            
+            this.coureurs.get(i).calculerPointsSprintCoureur();
+            int point = this.coureurs.get(i).getPointsSprint();
+            
+            if (point>pointTop){
+                this.meilleurSprinteur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurSprinteur(){
+        return this.meilleurSprinteur;
+    }
+    
+    public void setMeilleurGrimpeur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            this.coureurs.get(i).calculerPointsColCoureur();
+            int point = this.coureurs.get(i).getPointsCol();
+            
+            if (point>pointTop){
+                this.meilleurGrimpeur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurGrimpeur(){
+        return this.meilleurGrimpeur;
+    }
+    
     
 }
