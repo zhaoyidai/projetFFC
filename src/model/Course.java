@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,13 +17,20 @@ public class Course {
     protected String paysDepartC;
     protected String paysArriveeC;
     protected String typeCourse;
+    protected ArrayList<Edition> editions;
     
     //Constructeur
     public Course(){
-    
+        this.editions= new ArrayList<Edition>();
     }
     
     //Les méthodes de la classe Course
+    public void getListeEditions(){
+        
+    }
     
+    public void getListeEtapes(){
+        
+    }
     
 }
