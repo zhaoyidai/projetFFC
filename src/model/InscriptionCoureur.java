@@ -16,12 +16,21 @@ public class InscriptionCoureur {
     protected String etatCoureur;
     protected Coureur c;
     protected Date dateInsC;
+    protected InscriptionEquipe invitation;
     
     public InscriptionCoureur(){
         this.dateInsC= new Date();
         this.etatCoureur="en attente d’invitation";
         this.numInsCoureur=ID_GEN1;
         ID_GEN1++;
+    }
+    public void accepterRefuser(boolean yn){
+        if(yn==true){
+            this.etatCoureur="dans une équipe";
+        }
+        else{
+            this.invitation=null;
+        }
     }
 
     
