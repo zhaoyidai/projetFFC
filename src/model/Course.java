@@ -49,6 +49,14 @@ public class Course {
         return this.etapes;
     }
     
+    //Affiche les étapes de la course
+    public void afficherEtapes(){
+        System.out.println("Etapes de la course "+ this.nomCourse);
+        for (int i=0;i<this.etapes.size();i++){
+            this.etapes.get(i).afficherTout();
+        }
+    }
+    
     //Ajoute une étape à la course
     public void ajouterEtape(Etape etape){
         this.etapes.add(etape);
