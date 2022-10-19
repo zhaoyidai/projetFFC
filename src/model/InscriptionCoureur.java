@@ -18,6 +18,9 @@ public class InscriptionCoureur {
     protected Coureur c;
     protected Date dateInsC;
     protected InscriptionEquipe invitation;
+//    nouveau variable
+    protected float TempstoC;
+    protected int classementEdition;
     
     //instantiation de col et sprint dans inscriptioncoureur 
     protected Hashtable<Col, ClassementCol>cols;
@@ -25,6 +28,7 @@ public class InscriptionCoureur {
     protected Hashtable<Etape,ClassementCoureur> classementEta;
     
     public InscriptionCoureur(){
+        this.classementEta = new Hashtable();
         this.dateInsC= new Date();
         this.etatCoureur="en attente d’invitation";
         this.numInsCoureur=ID_GEN1;
@@ -33,6 +37,7 @@ public class InscriptionCoureur {
         this.sprints = new Hashtable<Sprint, ClassementSprint>();
 
     }
+    
     public void accepterRefuser(boolean yn){
         if(yn==true){
             this.etatCoureur="dans une équipe";
@@ -47,7 +52,10 @@ public class InscriptionCoureur {
         return classementEta;
     }
 
-    
+    public void enregistrerTemps(Etape e,float temps){
+        ClassementCoureur cc1=new ClassementCoureur(temps);
+        this.classementEta.put(e, cc1);
+    }
     
     
     
@@ -62,6 +70,23 @@ public class InscriptionCoureur {
     
     public String getEtatCoureur() {
         return etatCoureur;
+    }
+
+    public int getClassementEdition() {
+        return classementEdition;
+    }
+
+    public void setClassementEdition(int classementEdition) {
+        this.classementEdition = classementEdition;
+    }
+    
+
+    public float getTempstoC() {
+        return TempstoC;
+    }
+
+    public void setTempstoC(float TempstoC) {
+        this.TempstoC = TempstoC;
     }
 
     public void setEtatCoureur(String etatCoureur) {
