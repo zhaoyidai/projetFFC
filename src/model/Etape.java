@@ -5,6 +5,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
@@ -12,6 +14,9 @@ import java.util.ArrayList;
  */
 public class Etape {
     //Attributs
+    public static int ID_GENEtape=0;
+    protected int idEtape;
+//    protected int numInsCoureur;
     protected String villeDepartEtape;
     protected String villeArriveeEtape;
     protected float distance;
@@ -20,6 +25,8 @@ public class Etape {
     
     //Constructeur
     public Etape(String villeDepartEtape, String villeArriveeEtape, float distance){
+        this.idEtape=ID_GENEtape;
+        ID_GENEtape++;
         this.villeDepartEtape=villeDepartEtape;
         this.villeArriveeEtape=villeArriveeEtape;
         this.distance=distance;
@@ -62,6 +69,43 @@ public class Etape {
             }
             this.cols[i]=col;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.idEtape;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Etape other = (Etape) obj;
+        if (this.idEtape != other.idEtape) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.distance) != Float.floatToIntBits(other.distance)) {
+            return false;
+        }
+        if (!Objects.equals(this.villeDepartEtape, other.villeDepartEtape)) {
+            return false;
+        }
+        if (!Objects.equals(this.villeArriveeEtape, other.villeArriveeEtape)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.sprints, other.sprints)) {
+            return false;
+        }
+        return Arrays.deepEquals(this.cols, other.cols);
     }
     
 }
