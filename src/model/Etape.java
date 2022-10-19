@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Etape {
     //Attributs
-    public static int ID_GENEtape=0;
+//    public static int ID_GENEtape=0;
     protected int idEtape;
 //    protected int numInsCoureur;
     protected String villeDepartEtape;
@@ -24,9 +24,9 @@ public class Etape {
     protected Col[] cols;
     
     //Constructeur
-    public Etape(String villeDepartEtape, String villeArriveeEtape, float distance){
-        this.idEtape=ID_GENEtape;
-        ID_GENEtape++;
+    public Etape(String villeDepartEtape, String villeArriveeEtape, float distance,int idEtape){
+        this.idEtape=idEtape;
+//        ID_GENEtape++;
         this.villeDepartEtape=villeDepartEtape;
         this.villeArriveeEtape=villeArriveeEtape;
         this.distance=distance;
