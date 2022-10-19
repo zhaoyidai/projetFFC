@@ -11,21 +11,24 @@ package model;
 public class ClassementGC {
     protected int classementGC;
     protected String etatGC;
+
     
-    public ClassementGC(int classementGC, String etatGC){
-        this.classementGC = classementGC;
-        this.etatGC = etatGC;
+    public ClassementGC(){
+
+        this.etatGC = "non valid";
     }
-    
+
     public void afficherClassementGC(){
         
     }
-    
+
     public int getClassementGC(){
         return classementGC;
     }
+
+
     
     public void validerClassement(){
-        
+        this.etatGC="valide";
     }
 }
