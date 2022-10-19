@@ -5,6 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Hashtable;
+import javax.lang.model.SourceVersion;
 
 /**
  *
@@ -72,9 +75,9 @@ public class Edition {
     }
     
     //Supprime l'inscription d'une équipe à l'édition de course
-    public void supprimerEquipe(){
+    public void supprimerEquipe(InscriptionEquipe equipe){
         
-        
+        this.equipes.remove(equipe);
     }
     
     //Retourne le classement général provisoire des coureurs à l'édition de la course
@@ -103,11 +106,45 @@ public class Edition {
         return this.equipes;
            
     }
-    
+    //Enregistrer le temps pour chaque etape
+    public void enregistrerTemps(Etape e,float temps,InscriptionCoureur ic){
+        ic.enregistrerTemps(e,temps);
+    }
+    //Enregistrer le classement d'une etape
+    public void enregistrerClassementEtape(Etape e){
+        if(this.coureurs.get(0).getClassementEta().get(e)!=null){
+            ArrayList<ClassementCoureur> etapeclassement=new ArrayList();
+            for(InscriptionCoureur ic:coureurs){
+                etapeclassement.add(ic.getClassementEta().get(e));
+            }
+            etapeclassement.sort(new EtapeComparator());
+            for(int i=0;i<etapeclassement.size();i++){
+                etapeclassement.get(i).setClassementC(i+1);
+            }
+        }else
+        {
+            System.out.println("pas encore enregistrer le temps pour cette étape !");
+        }
+    }
     //Enregistrer le classement générale des coureurs
     public void enregistrerClassementGC(){
-        
-        
+        ArrayList<Etape> listeEtapes=this.course.getListeEtapes();
+        ArrayList<InscriptionCoureur> classFCoureurs=new ArrayList();
+//        sort liste des coureurs
+        for(InscriptionCoureur ic:coureurs){
+//            ClassementGC classementc=new ClassementGC();
+            float tempst=0;
+            for(Etape e:listeEtapes){
+               tempst+=ic.getClassementEta().get(e).getTemps();
+               
+            } 
+            ic.setTempstoC(tempst);
+            classFCoureurs.add(ic);
+        }
+        classFCoureurs.sort(new EditionComparator());
+        for(int i=0;i<classFCoureurs.size();i++){
+            classFCoureurs.get(i).setClassementEdition(i+1);
+        }
     }
     
     //Enregistrer le classement générale des équipes
@@ -121,6 +158,40 @@ public class Edition {
         
     }
     
+}
+
+
+class EditionComparator implements Comparator<InscriptionCoureur>{
+ 
+    @Override
+    public int compare(InscriptionCoureur o1, InscriptionCoureur o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTempstoC()>o2.getTempstoC())
+            return 1;
+        else if(o1.getTempstoC()<o2.getTempstoC())
+            return -1;
+        else{
+            return 0;
+        }
+    }
+}
+
+class EtapeComparator implements Comparator<ClassementCoureur>{
+ 
+    @Override
+    public int compare(ClassementCoureur o1, ClassementCoureur o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTemps()>o2.getTemps())
+            return 1;
+        else if(o1.getTemps()<o2.getTemps())
+            return -1;
+        else{
+            
+                return 0;
+        }
+    }
     public void setMeilleurSprinteur(){
         Coureur meilleur;
         int pointTop = 0;
@@ -160,3 +231,9 @@ public class Edition {
     
     
 }
+
+
+
+
+
+    
