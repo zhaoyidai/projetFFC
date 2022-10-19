@@ -19,8 +19,8 @@ public class Edition {
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
     protected Course course;
-    protected Hashtable<InscriptionEquipe, ClassementGE> classementEquipes;
-    protected Hashtable<InscriptionCoureur, ClassementGC> classementCoureurs;
+    protected ArrayList<InscriptionEquipe> equipes;
+    protected ArrayList<InscriptionCoureur> coureurs;
     
     //Constructeur
     public Edition(String dateDebutEdition, String dateFinEdition,Course course){
