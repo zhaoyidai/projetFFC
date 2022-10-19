@@ -7,6 +7,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.Random;
 import javax.lang.model.SourceVersion;
 
 /**
@@ -18,6 +19,8 @@ public class Edition {
     protected String dateDebutEdition;
     protected String dateFinEdition;
     protected Coureur meilleurSprinteur;
+    protected ArrayList<Coureur> meilleurSprinteurs;
+    protected ArrayList<Coureur> meilleurGrimpeurs;
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
     protected Course course;
@@ -31,6 +34,8 @@ public class Edition {
         this.course=course;
         this.coureurs= new ArrayList<InscriptionCoureur>();
         this.equipes= new ArrayList<InscriptionEquipe>();
+        this.meilleurGrimpeurs = new ArrayList<Coureur>();
+        this.meilleurSprinteurs = new ArrayList<Coureur>();
         this.course.editions.add(this);
     }
     
@@ -179,9 +184,19 @@ public class Edition {
             int point = this.coureurs.get(i).getPointsSprint();
             
             if (point>pointTop){
-                this.meilleurSprinteur = this.coureurs.get(i).getC();
+                this.meilleurSprinteurs.add(this.coureurs.get(i).getC());
+            }else if(point==pointTop){
+                this.meilleurSprinteurs.add(this.coureurs.get(i).getC());
             }
             
+        }
+        
+        if(this.meilleurSprinteurs.size()==1){
+            this.meilleurSprinteur = this.meilleurSprinteurs.get(0);
+        }else if (this.meilleurSprinteurs.size()>1){
+            Random rand = new Random();
+            int nombreA = rand.nextInt(this.meilleurSprinteurs.size())+1;
+            this.meilleurSprinteur = this.meilleurSprinteurs.get(nombreA);
         }
     }
     
@@ -197,9 +212,19 @@ public class Edition {
             int point = this.coureurs.get(i).getPointsCol();
             
             if (point>pointTop){
-                this.meilleurGrimpeur = this.coureurs.get(i).getC();
+                this.meilleurGrimpeurs.add(this.coureurs.get(i).getC());
+            }else if(point==pointTop){
+                this.meilleurGrimpeurs.add(this.coureurs.get(i).getC());
             }
             
+        }
+        
+        if(this.meilleurGrimpeurs.size()==1){
+            this.meilleurGrimpeur = this.meilleurGrimpeurs.get(0);
+        }else if (this.meilleurGrimpeurs.size()>1){
+            Random rand = new Random();
+            int nombreA = rand.nextInt(this.meilleurGrimpeurs.size());
+            this.meilleurGrimpeur = this.meilleurGrimpeurs.get(nombreA);
         }
     }
     

@@ -23,7 +23,7 @@ public class InscriptionCoureur {
     protected float TempstoC;
     protected int classementEdition;
     
-    //nouveau classement général 
+    //calcule points totals 
     protected int pointsSprintsCoureur;
     protected int pointsColsCoureur;
     
