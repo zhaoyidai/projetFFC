@@ -79,21 +79,7 @@ public class Edition {
         
         this.equipes.remove(equipe);
     }
-    
-    //Retourne le classement général provisoire des coureurs à l'édition de la course
-    public int[] getClassementGC(){
         
-        return null;
-        
-    }
-    
-    //Retourne le classement général provisoire des équipes à l'édition de la course
-    public int[] getClassementGE(){
-        
-        return null;
-        
-    }
-    
     //Modifie les informations d'une édition de course
     public void modifEdition(String dateDebut, String dateFin){
         this.dateDebutEdition=dateDebut;
