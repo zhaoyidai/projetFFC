@@ -176,6 +176,14 @@ public class InscriptionEquipe {
         this.contactCor = contactCor;
     }
     
+    public void verifierConfirmite(boolean avis){
+        if(avis==true){
+            this.etatE="Validé";
+        }else{
+            this.etatE="À modifier";
+        }
+    }
+    
     
     
     
