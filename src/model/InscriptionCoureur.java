@@ -109,7 +109,7 @@ public class InscriptionCoureur {
     public int getNumInsCoureur() {
         return numInsCoureur;
     }
-    
+        
     public void creerClassementSprint(int ordreSprint, Sprint sprints){
         ClassementSprint classSprint = new ClassementSprint(ordreSprint);
         this.sprints.put(sprints, classSprint);
