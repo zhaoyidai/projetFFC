@@ -128,17 +128,9 @@ public class Edition {
     public void enregistrerClassementGC(){
         ArrayList<Etape> listeEtapes=this.course.getListeEtapes();
         ArrayList<InscriptionCoureur> classFCoureurs=new ArrayList();
-//        sort liste des coureurs
-        for(InscriptionCoureur ic:coureurs){
-//            ClassementGC classementc=new ClassementGC();
-            float tempst=0;
-            for(Etape e:listeEtapes){
-               tempst+=ic.getClassementEta().get(e).getTemps();
-               
-            } 
-            ic.setTempstoC(tempst);
-            classFCoureurs.add(ic);
-        }
+        
+        classFCoureurs = (ArrayList<InscriptionCoureur>) this.coureurs.clone();
+        
         classFCoureurs.sort(new EditionComparator());
         for(int i=0;i<classFCoureurs.size();i++){
             classFCoureurs.get(i).setClassementEdition(i+1);
@@ -147,8 +139,15 @@ public class Edition {
     
     //Enregistrer le classement générale des équipes
     public void enregistrerClassementGE(){
+        ArrayList<InscriptionEquipe> listeEquipes = new ArrayList<InscriptionEquipe>();
         
+        listeEquipes = (ArrayList<InscriptionEquipe>) this.equipes.clone();
         
+        listeEquipes.sort(new EditionEquipeComparator());
+        
+        for (int i=0;i<listeEquipes.size();i++){
+            listeEquipes.get(i).setClassementEdition(i+1);
+        }
     }
     
     //Termine l'édition
@@ -239,6 +238,22 @@ class EtapeComparatorEquipe implements Comparator<ClassementEquipe>{
         if(o1.getTempsE()>o2.getTempsE())
             return 1;
         else if(o1.getTempsE()<o2.getTempsE())
+            return -1;
+        else{
+            
+                return 0;
+        }
+    }
+    
+}
+class EditionEquipeComparator implements Comparator<InscriptionEquipe>{
+ 
+    @Override
+    public int compare(InscriptionEquipe ie1, InscriptionEquipe  ie2) {
+        
+        if(ie1.getTempsTE()>ie2.getTempsTE())
+            return 1;
+        else if(ie1.getTempsTE()<ie2.getTempsTE())
             return -1;
         else{
             

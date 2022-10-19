@@ -103,9 +103,25 @@ public class InscriptionEquipe {
     
  
     public void calculerEdition(){
+        //Définir classement
+        ArrayList<InscriptionCoureur> classementCoureurs = new ArrayList<InscriptionCoureur>();
+        classementCoureurs=(ArrayList<InscriptionCoureur>) this.coureurs.clone();
         
+        classementCoureurs.sort(new CoureurComparator());
+        
+        this.tempsTE=0;
+        for (int i=0;i<3;i++){
+            this.tempsTE=this.tempsTE+classementCoureurs.get(i).TempstoC;
+        }
     }
-    
+
+    public float getTempsTE() {
+        return tempsTE;
+    }
+
+    public void setClassementEdition(int classementEdition) {
+        this.classementEdition = classementEdition;
+    }
     
     
     public int getNumE() {
@@ -164,3 +180,16 @@ public class InscriptionEquipe {
     
     
 }
+
+class CoureurComparator implements Comparator<InscriptionCoureur>{
+    public int compare(InscriptionCoureur ic1, InscriptionCoureur ic2){
+        if(ic1.getTempstoC()>ic2.getTempstoC()){
+            return 1;
+        }else if (ic1.getTempstoC()<ic2.getTempstoC()){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+}
+        
