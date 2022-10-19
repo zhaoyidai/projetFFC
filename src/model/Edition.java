@@ -27,6 +27,9 @@ public class Edition {
     protected ArrayList<InscriptionEquipe> equipes;
     protected ArrayList<InscriptionCoureur> coureurs;
     
+    //etat du classement (pour le classement Equipes et Coureurs) provisoire ou validé
+    protected String etatClassement;
+    
     //Constructeur
     public Edition(String dateDebutEdition, String dateFinEdition,Course course){
         this.dateDebutEdition=dateDebutEdition;
@@ -133,9 +136,16 @@ public class Edition {
     public void enregistrerClassementGC(){
         ArrayList<Etape> listeEtapes=this.course.getListeEtapes();
         ArrayList<InscriptionCoureur> classFCoureurs=new ArrayList();
-        
-        classFCoureurs = (ArrayList<InscriptionCoureur>) this.coureurs.clone();
-        
+        for(InscriptionCoureur ic:coureurs){
+//            ClassementGC classementc=new ClassementGC();
+            float tempst=0;
+            for(Etape e:listeEtapes){
+               tempst+=ic.getClassementEta().get(e).getTemps();
+               
+            } 
+            ic.setTempstoC(tempst);
+            classFCoureurs.add(ic);
+        }
         classFCoureurs.sort(new EditionComparator());
         for(int i=0;i<classFCoureurs.size();i++){
             classFCoureurs.get(i).setClassementEdition(i+1);
@@ -145,7 +155,9 @@ public class Edition {
     //Enregistrer le classement générale des équipes
     public void enregistrerClassementGE(){
         ArrayList<InscriptionEquipe> listeEquipes = new ArrayList<InscriptionEquipe>();
-        
+        for(InscriptionEquipe ie:this.equipes){
+            ie.calculerEdition();
+        }
         listeEquipes = (ArrayList<InscriptionEquipe>) this.equipes.clone();
         
         listeEquipes.sort(new EditionEquipeComparator());
@@ -153,10 +165,23 @@ public class Edition {
         for (int i=0;i<listeEquipes.size();i++){
             listeEquipes.get(i).setClassementEdition(i+1);
         }
+        
+        this.etatClassement = "Provisoire";
+    }
+    
+    public void validerClassement(){
+        this.etatClassement = "Validé";
     }
     
     //Termine l'édition
     public void terminerEdition(){
+        for(int i=0; i<this.coureurs.size(); i++){
+            this.coureurs.get(i).setEtatCoureur("Terminé");
+        }
+        
+        for(int i=0; i<this.equipes.size(); i++){
+            this.equipes.get(i).setEtatE("Terminé");
+        }
        
     }
     
@@ -216,6 +241,7 @@ public class Edition {
     public Coureur getMeilleurGrimpeur(){
         return this.meilleurGrimpeur;
     }
+
     
 }
 
