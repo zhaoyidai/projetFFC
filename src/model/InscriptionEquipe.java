@@ -109,10 +109,13 @@ public class InscriptionEquipe {
         
         classementCoureurs.sort(new CoureurComparator());
         
-        this.tempsTE=0;
+//        this.tempsTE=0;
         for (int i=0;i<3;i++){
-            this.tempsTE=this.tempsTE+classementCoureurs.get(i).TempstoC;
+            float tempsunCoureur=classementCoureurs.get(i).TempstoC;
+            this.tempsTE+=classementCoureurs.get(i).TempstoC;
         }
+        
+        
     }
 
     public float getTempsTE() {
@@ -134,6 +137,10 @@ public class InscriptionEquipe {
 
     public String getEtatE() {
         return etatE;
+    }
+
+    public int getClassementEdition() {
+        return classementEdition;
     }
 
     public String getNomCorrespondant() {

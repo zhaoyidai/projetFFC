@@ -133,9 +133,16 @@ public class Edition {
     public void enregistrerClassementGC(){
         ArrayList<Etape> listeEtapes=this.course.getListeEtapes();
         ArrayList<InscriptionCoureur> classFCoureurs=new ArrayList();
-        
-        classFCoureurs = (ArrayList<InscriptionCoureur>) this.coureurs.clone();
-        
+        for(InscriptionCoureur ic:coureurs){
+//            ClassementGC classementc=new ClassementGC();
+            float tempst=0;
+            for(Etape e:listeEtapes){
+               tempst+=ic.getClassementEta().get(e).getTemps();
+               
+            } 
+            ic.setTempstoC(tempst);
+            classFCoureurs.add(ic);
+        }
         classFCoureurs.sort(new EditionComparator());
         for(int i=0;i<classFCoureurs.size();i++){
             classFCoureurs.get(i).setClassementEdition(i+1);
@@ -145,7 +152,9 @@ public class Edition {
     //Enregistrer le classement générale des équipes
     public void enregistrerClassementGE(){
         ArrayList<InscriptionEquipe> listeEquipes = new ArrayList<InscriptionEquipe>();
-        
+        for(InscriptionEquipe ie:this.equipes){
+            ie.calculerEdition();
+        }
         listeEquipes = (ArrayList<InscriptionEquipe>) this.equipes.clone();
         
         listeEquipes.sort(new EditionEquipeComparator());
