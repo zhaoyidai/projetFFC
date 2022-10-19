@@ -119,6 +119,18 @@ public class Edition {
             for(int i=0;i<etapeclassement.size();i++){
                 etapeclassement.get(i).setClassementC(i+1);
             }
+            
+            ArrayList<ClassementEquipe> etapeclassementE=new ArrayList();
+            for(InscriptionEquipe ie:equipes){
+                ie.calculerTempsEEtape(e);
+                etapeclassementE.add(ie.getClassementE().get(e));
+            }
+            etapeclassementE.sort(new EtapeComparatorEquipe());
+            for(int i=0;i<etapeclassementE.size();i++){
+                etapeclassementE.get(i).setClassementE(i+1);
+            }
+            
+            
         }else
         {
             System.out.println("pas encore enregistrer le temps pour cette étape !");
@@ -185,6 +197,24 @@ class EtapeComparator implements Comparator<ClassementCoureur>{
         if(o1.getTemps()>o2.getTemps())
             return 1;
         else if(o1.getTemps()<o2.getTemps())
+            return -1;
+        else{
+            
+                return 0;
+        }
+    }
+    
+}
+
+class EtapeComparatorEquipe implements Comparator<ClassementEquipe>{
+ 
+    @Override
+    public int compare(ClassementEquipe o1, ClassementEquipe o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTempsE()>o2.getTempsE())
+            return 1;
+        else if(o1.getTempsE()<o2.getTempsE())
             return -1;
         else{
             
