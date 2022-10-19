@@ -107,6 +107,18 @@ public class Edition {
             for(int i=0;i<etapeclassement.size();i++){
                 etapeclassement.get(i).setClassementC(i+1);
             }
+            
+            ArrayList<ClassementEquipe> etapeclassementE=new ArrayList();
+            for(InscriptionEquipe ie:equipes){
+                ie.calculerTempsEEtape(e);
+                etapeclassementE.add(ie.getClassementE().get(e));
+            }
+            etapeclassementE.sort(new EtapeComparatorEquipe());
+            for(int i=0;i<etapeclassementE.size();i++){
+                etapeclassementE.get(i).setClassementE(i+1);
+            }
+            
+            
         }else
         {
             System.out.println("pas encore enregistrer le temps pour cette étape !");
@@ -144,6 +156,43 @@ public class Edition {
         
     }
     
+     public void setMeilleurSprinteur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            
+            this.coureurs.get(i).calculerPointsSprintCoureur();
+            int point = this.coureurs.get(i).getPointsSprint();
+            
+            if (point>pointTop){
+                this.meilleurSprinteur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurSprinteur(){
+        return this.meilleurSprinteur;
+    }
+    
+    public void setMeilleurGrimpeur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            this.coureurs.get(i).calculerPointsColCoureur();
+            int point = this.coureurs.get(i).getPointsCol();
+            
+            if (point>pointTop){
+                this.meilleurGrimpeur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurGrimpeur(){
+        return this.meilleurGrimpeur;
+    }
+    
 }
 
 
@@ -177,12 +226,24 @@ class EtapeComparator implements Comparator<ClassementCoureur>{
             
                 return 0;
         }
-    }
+    } 
     
 }
 
-
-
-
-
+class EtapeComparatorEquipe implements Comparator<ClassementEquipe>{
+ 
+    @Override
+    public int compare(ClassementEquipe o1, ClassementEquipe o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTempsE()>o2.getTempsE())
+            return 1;
+        else if(o1.getTempsE()<o2.getTempsE())
+            return -1;
+        else{
+            
+                return 0;
+        }
+    }
     
+}

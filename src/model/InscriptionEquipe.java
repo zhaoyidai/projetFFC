@@ -25,6 +25,8 @@ public class InscriptionEquipe {
     protected ArrayList<InscriptionCoureur> coureurs;
     protected ArrayList<Vehicule> vehicules;
     protected Hashtable<Etape,ClassementEquipe> classementE;
+    protected float tempsTE;
+    protected int classementEdition;
     
     public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteC,String contactCor){
         this.classementE = new Hashtable();
@@ -100,7 +102,9 @@ public class InscriptionEquipe {
     }
     
  
-    
+    public void calculerEdition(){
+        
+    }
     
     
     
