@@ -6,6 +6,7 @@ package model;
 
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  *
@@ -21,6 +22,10 @@ public class InscriptionCoureur {
 //    nouveau variable
     protected float TempstoC;
     protected int classementEdition;
+    
+    //nouveau classement général 
+    protected int pointsSprintsCoureur;
+    protected int pointsColsCoureur;
     
     //instantiation de col et sprint dans inscriptioncoureur 
     protected Hashtable<Col, ClassementCol>cols;
@@ -198,5 +203,31 @@ public class InscriptionCoureur {
     
     public Hashtable getSprints(){
         return this.sprints;
+    }
+    
+    public void calculerPointsSprintCoureur(){
+        Iterator it = this.sprints.keySet().iterator();
+        int points = 0;
+        while(it.hasNext()){
+            points = points + this.sprints.get(it.next()).getPointSprint();
+        }
+        this.pointsSprintsCoureur = points;      
+    }
+    
+    public int getPointsSprint(){
+        return this.pointsSprintsCoureur;
+    }
+    
+    public void calculerPointsColCoureur(){
+        Iterator it = this.cols.keySet().iterator();
+        int points = 0;
+        while(it.hasNext()){
+            points = points + this.cols.get(it.next()).getPointCol();
+        }
+        this.pointsColsCoureur = points;      
+    }
+    
+    public int getPointsCol(){
+        return this.pointsColsCoureur;
     }
 }

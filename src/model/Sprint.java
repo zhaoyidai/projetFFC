@@ -25,4 +25,14 @@ public class Sprint {
         return this.sprintFinal;
     }
 
+    public boolean equals(Object o){
+        Sprint s1 = (Sprint)o;
+        if(s1.getCodeSprint() == (this.getCodeSprint())){
+            return true;
+        }
+        return false;
+    }
+    public int hashCode(Object o){
+        return this.codeSprint;
+    }
 }

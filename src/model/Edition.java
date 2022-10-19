@@ -6,6 +6,8 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Hashtable;
+import javax.lang.model.SourceVersion;
 
 /**
  *
@@ -73,9 +75,9 @@ public class Edition {
     }
     
     //Supprime l'inscription d'une équipe à l'édition de course
-    public void supprimerEquipe(){
+    public void supprimerEquipe(InscriptionEquipe equipe){
         
-        
+        this.equipes.remove(equipe);
     }
     
     //Retourne le classement général provisoire des coureurs à l'édition de la course
@@ -168,6 +170,42 @@ public class Edition {
         
     }
     
+     public void setMeilleurSprinteur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            
+            this.coureurs.get(i).calculerPointsSprintCoureur();
+            int point = this.coureurs.get(i).getPointsSprint();
+            
+            if (point>pointTop){
+                this.meilleurSprinteur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurSprinteur(){
+        return this.meilleurSprinteur;
+    }
+    
+    public void setMeilleurGrimpeur(){
+        Coureur meilleur;
+        int pointTop = 0;
+        for(int i=0; i<this.coureurs.size(); i++){
+            this.coureurs.get(i).calculerPointsColCoureur();
+            int point = this.coureurs.get(i).getPointsCol();
+            
+            if (point>pointTop){
+                this.meilleurGrimpeur = this.coureurs.get(i).getC();
+            }
+            
+        }
+    }
+    
+    public Coureur getMeilleurGrimpeur(){
+        return this.meilleurGrimpeur;
+    }
     
 }
 
@@ -202,7 +240,7 @@ class EtapeComparator implements Comparator<ClassementCoureur>{
             
                 return 0;
         }
-    }
+    } 
     
 }
 
