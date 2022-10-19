@@ -28,18 +28,162 @@ public class InscriptionEquipe extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dateInscription = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        dateInscription1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        dateInscription2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        dateInscription3 = new javax.swing.JTextField();
+        dateInscription4 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        dateInscription5 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        dateInscription6 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        dateInscription7 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        dateInscription8 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        dateInscription9 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        dateInscription11 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        dateInscription12 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        ESuivant = new javax.swing.JButton();
+        Home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("INSCRIPTION EQUIPE");
 
         jLabel2.setText("Course Cycliste");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        dateInscription.setText("JJ/MM/AAAA");
+        dateInscription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                dateInscriptionActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Date d'inscription");
+
+        dateInscription1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Nom de l'équipe");
+
+        dateInscription2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription2ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Nationnalité de l'équipe");
+
+        jLabel6.setText("Email");
+
+        jLabel7.setText("Nom et prénom du correspondant ");
+
+        dateInscription3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription3ActionPerformed(evt);
+            }
+        });
+
+        dateInscription4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription4ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Teléphone");
+
+        dateInscription5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription5ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Nom de la course");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        dateInscription6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription6ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Ville arrivée");
+
+        dateInscription7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription7ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Ville départ");
+
+        dateInscription8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription8ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Pays");
+
+        dateInscription9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription9ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Pays");
+
+        dateInscription11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription11ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Date début");
+
+        dateInscription12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateInscription12ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Date fin");
+
+        jLabel14.setText("Edition");
+
+        ESuivant.setText("Suivant");
+        ESuivant.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ESuivantMouseClicked(evt);
+            }
+        });
+        ESuivant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ESuivantActionPerformed(evt);
+            }
+        });
+
+        Home.setText("Accueil");
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
             }
         });
 
@@ -47,38 +191,220 @@ public class InscriptionEquipe extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dateInscription, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(237, 237, 237)
-                        .addComponent(jLabel2)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dateInscription1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                    .addComponent(dateInscription2)
+                                    .addComponent(dateInscription3)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dateInscription4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(3, 3, 3)
+                        .addComponent(dateInscription5)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel14)
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel15)
+                        .addGap(9, 9, 9)
+                        .addComponent(dateInscription11, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateInscription12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(dateInscription7, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(dateInscription6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(dateInscription9)
+                            .addComponent(dateInscription8, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ESuivant)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(214, 214, 214)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Home)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(Home))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateInscription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateInscription1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateInscription2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(dateInscription3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(dateInscription4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(dateInscription5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateInscription7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateInscription6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateInscription8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateInscription9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(dateInscription12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateInscription11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ESuivant)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void dateInscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscriptionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_dateInscriptionActionPerformed
+
+    private void dateInscription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription1ActionPerformed
+
+    private void dateInscription2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription2ActionPerformed
+
+    private void dateInscription3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription3ActionPerformed
+
+    private void dateInscription4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription4ActionPerformed
+
+    private void dateInscription5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription5ActionPerformed
+
+    private void dateInscription6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription6ActionPerformed
+
+    private void dateInscription7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription7ActionPerformed
+
+    private void dateInscription8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription8ActionPerformed
+
+    private void dateInscription9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription9ActionPerformed
+
+    private void dateInscription11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription11ActionPerformed
+
+    private void dateInscription12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateInscription12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateInscription12ActionPerformed
+
+    private void ESuivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ESuivantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ESuivantActionPerformed
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        // TODO add your handling code here:
+        Accueil a = new Accueil();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void ESuivantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ESuivantMouseClicked
+        // TODO add your handling code here:
+        InscriptionEquipeAC ie = new InscriptionEquipeAC();
+        ie.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ESuivantMouseClicked
 
     /**
      * @param args the command line arguments
@@ -116,8 +442,36 @@ public class InscriptionEquipe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ESuivant;
+    private javax.swing.JButton Home;
+    private javax.swing.JTextField dateInscription;
+    private javax.swing.JTextField dateInscription1;
+    private javax.swing.JTextField dateInscription11;
+    private javax.swing.JTextField dateInscription12;
+    private javax.swing.JTextField dateInscription2;
+    private javax.swing.JTextField dateInscription3;
+    private javax.swing.JTextField dateInscription4;
+    private javax.swing.JTextField dateInscription5;
+    private javax.swing.JTextField dateInscription6;
+    private javax.swing.JTextField dateInscription7;
+    private javax.swing.JTextField dateInscription8;
+    private javax.swing.JTextField dateInscription9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
