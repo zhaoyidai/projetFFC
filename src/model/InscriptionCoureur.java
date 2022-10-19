@@ -17,7 +17,7 @@ public class InscriptionCoureur {
     protected int numInsCoureur;
     protected String etatCoureur;
     protected Coureur c;
-    protected Date dateInsC;
+    protected String dateInsC;
     protected InscriptionEquipe invitation;
 //    nouveau variable
     protected float TempstoC;
@@ -34,7 +34,7 @@ public class InscriptionCoureur {
     
     public InscriptionCoureur(){
         this.classementEta = new Hashtable();
-        this.dateInsC= new Date();
+//        this.dateInsC= new Date();
         this.etatCoureur="en attente d’invitation";
         this.numInsCoureur=ID_GEN1;
         ID_GEN1++;
