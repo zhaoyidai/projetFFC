@@ -191,3 +191,38 @@ class EtapeComparator implements Comparator<ClassementCoureur>{
     }
     
 }
+
+
+class EditionComparator implements Comparator<InscriptionCoureur>{
+ 
+    @Override
+    public int compare(InscriptionCoureur o1, InscriptionCoureur o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTempstoC()>o2.getTempstoC())
+            return 1;
+        else if(o1.getTempstoC()<o2.getTempstoC())
+            return -1;
+        else{
+            return 0;
+        }
+    }
+}
+
+class EtapeComparator implements Comparator<ClassementCoureur>{
+ 
+    @Override
+    public int compare(ClassementCoureur o1, ClassementCoureur o2) {
+        // TODO Auto-generated method stub
+        
+        if(o1.getTemps()>o2.getTemps())
+            return 1;
+        else if(o1.getTemps()<o2.getTemps())
+            return -1;
+        else{
+            
+                return 0;
+        }
+    }
+    
+}
