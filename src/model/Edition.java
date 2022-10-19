@@ -5,7 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Hashtable;
+import javax.lang.model.SourceVersion;
 
 /**
  *
@@ -19,16 +21,16 @@ public class Edition {
     protected Coureur meilleurGrimpeur;
     protected Coureur meilleurJeune;
     protected Course course;
-    protected Hashtable<InscriptionEquipe,ClassementGE> classementEquipes;
-    protected Hashtable<InscriptionCoureur,ClassementGC> classementCoureurs;
+    protected ArrayList<InscriptionEquipe> equipes;
+    protected ArrayList<InscriptionCoureur> coureurs;
     
     //Constructeur
     public Edition(String dateDebutEdition, String dateFinEdition,Course course){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
         this.course=course;
-        this.classementCoureurs= new Hashtable<InscriptionCoureur,ClassementGC>();
-        this.classementEquipes= new Hashtable<InscriptionEquipe, ClassementGE>();
+        this.coureurs= new ArrayList<InscriptionCoureur>();
+        this.equipes= new ArrayList<InscriptionEquipe>();
         this.course.editions.add(this);
     }
     
@@ -57,25 +59,25 @@ public class Edition {
     
     //Inscrit une équipe à l'édition de course
     public void inscrireEquipe(InscriptionEquipe equipe){
-        this.classementEquipes.put(equipe,null);
+        this.equipes.add(equipe);
     }
     
     //Inscrit un coureur à l'édition de course
     public void inscrireCoureur(InscriptionCoureur coureur){
-        this.classementCoureurs.put(coureur, null);
+        this.coureurs.add(coureur);
     }
     
     //Retourne la liste des coureurs de l'édition de course
-    public Hashtable<InscriptionCoureur, ClassementGC> obtenirlisteCoureurs(){
+    public ArrayList<InscriptionCoureur> obtenirlisteCoureurs(){
         
-        return this.classementCoureurs;
+        return this.coureurs;
         
     }
     
     //Supprime l'inscription d'une équipe à l'édition de course
     public void supprimerEquipe(InscriptionEquipe equipe){
         
-        this.classementEquipes.remove(equipe);
+        this.equipes.remove(equipe);
     }
     
     //Retourne le classement général provisoire des coureurs à l'édition de la course
@@ -99,9 +101,9 @@ public class Edition {
     }
     
     //Retourne la liste des équipes qui participent à l'édition de course
-    public Hashtable<InscriptionEquipe, ClassementGE> obtenirListeEquipes(){
+    public ArrayList<InscriptionEquipe> obtenirListeEquipes(){
            
-        return this.classementEquipes;
+        return this.equipes;
            
     }
     //Enregistrer le temps pour chaque etape
@@ -194,36 +196,7 @@ class EtapeComparator implements Comparator<ClassementCoureur>{
 }
 
 
-class EditionComparator implements Comparator<InscriptionCoureur>{
- 
-    @Override
-    public int compare(InscriptionCoureur o1, InscriptionCoureur o2) {
-        // TODO Auto-generated method stub
-        
-        if(o1.getTempstoC()>o2.getTempstoC())
-            return 1;
-        else if(o1.getTempstoC()<o2.getTempstoC())
-            return -1;
-        else{
-            return 0;
-        }
-    }
-}
 
-class EtapeComparator implements Comparator<ClassementCoureur>{
- 
-    @Override
-    public int compare(ClassementCoureur o1, ClassementCoureur o2) {
-        // TODO Auto-generated method stub
-        
-        if(o1.getTemps()>o2.getTemps())
-            return 1;
-        else if(o1.getTemps()<o2.getTemps())
-            return -1;
-        else{
-            
-                return 0;
-        }
-    }
+
+
     
-}
