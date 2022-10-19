@@ -24,4 +24,15 @@ public class Col {
     public boolean getColFinal(){
         return this.colFinal;
     }
+    
+    public boolean equals(Object o){
+        Col s1 = (Col)o;
+        if(s1.getCodeCol() == (this.getCodeCol())){
+            return true;
+        }
+        return false;
+    }
+    public int hashCode(Object o){
+        return this.codeCol;
+    }
 }
