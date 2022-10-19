@@ -20,7 +20,7 @@ public class InscriptionEquipe {
     protected String etatE;
     protected String nomCorrespondant;
     protected String nationaliteC;
-    protected Date dateInsE;
+    protected String dateInsE;
     protected String contactCor;
     protected ArrayList<InscriptionCoureur> coureurs;
     protected ArrayList<Vehicule> vehicules;
@@ -30,7 +30,7 @@ public class InscriptionEquipe {
     
     public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteC,String contactCor){
         this.classementE = new Hashtable();
-        this.dateInsE= new Date();
+//        this.dateInsE= new Date();
         this.numE=ID_GENE;
         ID_GENE++;
         this.nomEquipe=nomEquipe;
@@ -151,9 +151,7 @@ public class InscriptionEquipe {
         return nationaliteC;
     }
 
-    public Date getDateInsE() {
-        return dateInsE;
-    }
+
 
     public String getContactCor() {
         return contactCor;
