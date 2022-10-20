@@ -68,11 +68,13 @@ public class Edition {
     //Inscrit une équipe à l'édition de course
     public void inscrireEquipe(InscriptionEquipe equipe){
         this.equipes.add(equipe);
+        
     }
     
     //Inscrit un coureur à l'édition de course
     public void inscrireCoureur(InscriptionCoureur coureur){
         this.coureurs.add(coureur);
+//        insert into ParticiperC values('1','1','1',"2022-02-02");
     }
     
     //Retourne la liste des coureurs de l'édition de course
