@@ -68,6 +68,12 @@ public class InscriptionEquipeAC extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(Listecoureurs);
+        if (Listecoureurs.getColumnModel().getColumnCount() > 0) {
+            Listecoureurs.getColumnModel().getColumn(0).setHeaderValue("Nom");
+            Listecoureurs.getColumnModel().getColumn(1).setHeaderValue("Prenom");
+            Listecoureurs.getColumnModel().getColumn(2).setHeaderValue("Date de naissance");
+            Listecoureurs.getColumnModel().getColumn(3).setHeaderValue("Numero Coureur");
+        }
 
         jLabel3.setText("Liste des coureurs inscrits ");
 
