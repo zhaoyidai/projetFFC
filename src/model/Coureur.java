@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.sql.*;
+
 
 import java.util.Calendar;
+import sql.sqlconnect;
 /**
  *
  * @author zdai2
@@ -76,6 +79,31 @@ public class Coureur {
         return rhesus;
     }
     
+    public void uploadCoureur(){
+        PreparedStatement Preparesql;
+	 sqlconnect con=new sqlconnect();//sqlconnect 
+	
+	Connection conn;  //定义Connection型的conn
     
+        conn=(Connection) con.getConnection();//链接数据库
+        
+	try {
+            Statement st;
+            st = conn.createStatement();
+            
+            String Value_sql="insert into coureur values ('"+this.numCoureur+"','" +this.nomCoureur+"','"+this.prenomCoureur+"',"+null+",'"+this.groupeSanguin+"','"+this.rhesus+"','"+this.nationaliteC+"');";
+            System.out.println(Value_sql);
+            st.executeUpdate(Value_sql);//执行预处理语句
+
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally{
+		con.sqlclose();//关闭数据库节省系统资源
+			
+	}
+    }
+
+
     
 }
