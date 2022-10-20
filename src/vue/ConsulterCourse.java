@@ -117,7 +117,7 @@ public class ConsulterCourse extends javax.swing.JFrame {
 		}finally{
 			con.sqlclose();//close
 			
-		}
+                }
 //        ArrayList<String> a1=new ArrayList();
 //        a1.add("A");
 //        a1.add("A");
