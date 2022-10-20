@@ -52,7 +52,7 @@ public class InscriptionCoureur {
             this.invitation=null;
         }
     }
-
+    
     public Hashtable<Etape, ClassementCoureur> getClassementEta() {
         return classementEta;
     }

@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Vector;
 import sql.sqlconnect;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -115,7 +118,11 @@ public class ConsulterCourse extends javax.swing.JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			con.sqlclose();//close
+                    try {
+                        conn.close();//close
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ConsulterCourse.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 			
                 }
 //        ArrayList<String> a1=new ArrayList();

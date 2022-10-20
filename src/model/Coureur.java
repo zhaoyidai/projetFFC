@@ -3,10 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import sql.sqlconnect;
 import java.sql.*;
 
 
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sql.sqlconnect;
 /**
  *
@@ -99,7 +102,11 @@ public class Coureur {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}finally{
-		con.sqlclose();//关闭数据库节省系统资源
+            try {
+                con.sqlclose();//关闭数据库节省系统资源
+            } catch (SQLException ex) {
+                Logger.getLogger(Coureur.class.getName()).log(Level.SEVERE, null, ex);
+            }
 			
 	}
     }
