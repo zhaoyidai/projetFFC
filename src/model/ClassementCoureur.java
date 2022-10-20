@@ -33,6 +33,30 @@ public class ClassementCoureur {
     public float getTemps() {
         return temps;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ClassementCoureur other = (ClassementCoureur) obj;
+        if (this.classementC != other.classementC) {
+            return false;
+        }
+        return Float.floatToIntBits(this.temps) == Float.floatToIntBits(other.temps);
+    }
     
 
 }

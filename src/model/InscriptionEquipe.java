@@ -19,8 +19,8 @@ public class InscriptionEquipe {
     protected String nomEquipe;
     protected String etatE;
     protected String nomCorrespondant;
-    protected String nationaliteC;
-    protected Date dateInsE;
+    protected String nationaliteE;
+    protected String dateInsE;
     protected String contactCor;
     protected ArrayList<InscriptionCoureur> coureurs;
     protected ArrayList<Vehicule> vehicules;
@@ -28,14 +28,14 @@ public class InscriptionEquipe {
     protected float tempsTE;
     protected int classementEdition;
     
-    public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteC,String contactCor){
+    public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteE,String contactCor){
         this.classementE = new Hashtable();
-        this.dateInsE= new Date();
+//        this.dateInsE= new Date();
         this.numE=ID_GENE;
         ID_GENE++;
         this.nomEquipe=nomEquipe;
         this.nomCorrespondant=nomCorrespondant;
-        this.nationaliteC=nationaliteC;
+        this.nationaliteE=nationaliteE;
         this.contactCor=contactCor;
         this.etatE="en constitution";
         this.coureurs=new ArrayList();
@@ -147,13 +147,11 @@ public class InscriptionEquipe {
         return nomCorrespondant;
     }
 
-    public String getNationaliteC() {
-        return nationaliteC;
+    public String getNationaliteE() {
+        return nationaliteE;
     }
 
-    public Date getDateInsE() {
-        return dateInsE;
-    }
+
 
     public String getContactCor() {
         return contactCor;
@@ -175,8 +173,8 @@ public class InscriptionEquipe {
         this.nomCorrespondant = nomCorrespondant;
     }
 
-    public void setNationaliteC(String nationaliteC) {
-        this.nationaliteC = nationaliteC;
+    public void setNationaliteE(String nationaliteC) {
+        this.nationaliteE = nationaliteC;
     }
 
     public void setContactCor(String contactCor) {

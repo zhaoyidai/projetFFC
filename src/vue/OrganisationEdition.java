@@ -54,6 +54,7 @@ public class OrganisationEdition extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("OrganiserEdition"); // NOI18N
@@ -136,6 +137,13 @@ public class OrganisationEdition extends javax.swing.JFrame {
             }
         });
 
+        Home.setText("Accueil");
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,7 +152,9 @@ public class OrganisationEdition extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(220, 220, 220)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addGap(144, 144, 144)
+                        .addComponent(Home))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -204,9 +214,11 @@ public class OrganisationEdition extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(24, 24, 24)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(Home))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChoixCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -270,6 +282,13 @@ public class OrganisationEdition extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        // TODO add your handling code here:
+        Accueil a = new Accueil();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -307,6 +326,7 @@ public class OrganisationEdition extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JComboBox<String> ChoixCourse;
+    private javax.swing.JButton Home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
