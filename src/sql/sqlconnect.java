@@ -22,8 +22,10 @@ public class sqlconnect {
 	}
     public static Connection getConnection(){
         try {
+
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ffc","root", "3377"); 
+
             return con;
         } catch( Exception e ) {
             return null;
@@ -31,6 +33,7 @@ public class sqlconnect {
     }
     
     public void sqlclose(){
+
 		//在处理完结果集的时候再关闭连接，关掉连接后处理结果集会发生此错误。
 		if(ghysql !=null){
 			try{
@@ -42,4 +45,5 @@ public class sqlconnect {
 			ghysql=null;
 		}
 	}
+
 }

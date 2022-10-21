@@ -19,7 +19,7 @@ public class InscriptionCoureur {
     protected Coureur c;
     protected String dateInsC;
     protected InscriptionEquipe invitation;
-//    nouveau variable
+    // Temps du coureur
     protected float TempstoC;
     protected int classementEdition;
     

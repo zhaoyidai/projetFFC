@@ -106,9 +106,7 @@ public class Coureur {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}finally{
-            
-                con.sqlclose();//关闭数据库节省系统资源
-            
+            con.sqlclose();//关闭数据库节省系统资源
 			
 	}
     }

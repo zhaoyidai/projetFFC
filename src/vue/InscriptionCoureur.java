@@ -78,7 +78,7 @@ public class InscriptionCoureur extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        validerInscription = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -185,10 +185,10 @@ public class InscriptionCoureur extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Envoyer Formulaire");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        validerInscription.setText("Envoyer Formulaire");
+        validerInscription.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                validerInscriptionMouseClicked(evt);
             }
         });
 
@@ -289,7 +289,7 @@ public class InscriptionCoureur extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton3)
+                                                .addComponent(validerInscription)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton4))
                                             .addComponent(jLabel19))
@@ -432,7 +432,7 @@ public class InscriptionCoureur extends javax.swing.JFrame {
                                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(validerInscription)
                     .addComponent(jButton4))
                 .addContainerGap())
         );
@@ -459,11 +459,11 @@ public class InscriptionCoureur extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton5MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void validerInscriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerInscriptionMouseClicked
         // TODO add your handling code here:
         Coureur c=new Coureur(jTextPane8.getText(),jTextPane9.getText(),Integer.valueOf(jTextPane12.getText()),Integer.valueOf(jTextPane13.getText()),Integer.valueOf(jTextPane10.getText()),jTextPane14.getText(),jTextPane15.getText(),jTextPane11.getText());
         c.uploadCoureur();
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_validerInscriptionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -503,7 +503,6 @@ public class InscriptionCoureur extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -565,5 +564,6 @@ public class InscriptionCoureur extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextPane jTextPane8;
     private javax.swing.JTextPane jTextPane9;
+    private javax.swing.JButton validerInscription;
     // End of variables declaration//GEN-END:variables
 }
