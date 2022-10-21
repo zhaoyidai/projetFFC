@@ -6,7 +6,7 @@ package model;
 
 import java.util.Scanner;
 import vue.ConsulterCourse;
-import sql.sqlconnect;
+import sql1.sqlconnect;
 import java.sql.*;
 
 /**

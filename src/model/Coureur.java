@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import sql.sqlconnect;
+import sql1.sqlconnect;
 import java.sql.*;
 
 
