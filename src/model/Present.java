@@ -23,7 +23,8 @@ public class Present {
             System.out.println("3.inscrire une equipe");
             System.out.println("4.ajouter un coureur");
             System.out.println("5.accepter ou refuser pour une ivitation equipe");
-            System.out.println("6.consulter le classement general pour les coureur");
+            System.out.println("6.consulter le classement Etape pour les coureur");
+            System.out.println("7.consulter le classement general pour les coureur");
             System.out.println("10.Consulter course");
             System.out.println("!!!!Saisir 0 pour finir!!!!");
             Scanner scan=new Scanner(System.in);
@@ -89,7 +90,17 @@ public class Present {
                     System.out.println("");
                     PresentInscription p4=new PresentInscription();
                     p4.classementE();
+//                    p4.classementEE();
+                    System.out.println("Finir");
+                    System.out.println("******************************************");
+                    break;
+                case 7:
                     
+                    System.out.println("consulter classement edition");
+                    System.out.println("");
+                    PresentInscription p5=new PresentInscription();
+                    p5.classementEdition();
+//                    p5.classementEditionE();
                     System.out.println("Finir");
                     System.out.println("******************************************");
                     break;

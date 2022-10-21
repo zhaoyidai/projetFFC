@@ -3,10 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vue;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JComboBox;
+
+import model.*;
 
 /**
  *
@@ -191,7 +189,13 @@ public class OrganisationEdition extends javax.swing.JFrame {
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_validerActionPerformed
+        
+        Edition e=new Edition(jTextPane6.getText(),jTextPane7.getText());
+//        String dateDebutEdition, String dateFinEdition,Course course
+//        int codeC=e.;
+        e.uploadEdition();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void annulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_annulerMouseClicked
         // TODO add your handling code here:

@@ -138,6 +138,27 @@ public class Edition {
                 etapeclassement.get(i).setClassementC(i+1);
             }
             
+            
+            
+            
+        }else
+        {
+            System.out.println("pas encore enregistrer le temps pour cette étape !");
+        }
+    }
+    
+    //calculer classement equipe d'une etape
+    public void enregistrerClassementEtapeE(Etape e){
+        if(this.coureurs.get(0).getClassementEta().get(e)!=null){
+            ArrayList<ClassementCoureur> etapeclassement=new ArrayList();
+            for(InscriptionCoureur ic:coureurs){
+                etapeclassement.add(ic.getClassementEta().get(e));
+            }
+            etapeclassement.sort(new EtapeComparator());
+            for(int i=0;i<etapeclassement.size();i++){
+                etapeclassement.get(i).setClassementC(i+1);
+            }
+            
             ArrayList<ClassementEquipe> etapeclassementE=new ArrayList();
             for(InscriptionEquipe ie:equipes){
                 ie.calculerTempsEEtape(e);
@@ -154,6 +175,8 @@ public class Edition {
             System.out.println("pas encore enregistrer le temps pour cette étape !");
         }
     }
+    
+    
     //Enregistrer le classement générale des coureurs
     public void enregistrerClassementGC(){
         ArrayList<Etape> listeEtapes=this.course.getListeEtapes();

@@ -11,12 +11,21 @@ import java.util.logging.Logger;
  * @author utiae
  */
 public class sqlconnect {
-    Connection con = null;
-    
+
+    private Connection con;
+	private PreparedStatement ghysql;
+	private ResultSet res;  //返回的Result
+	
+	public static void main(String[] args){
+		sqlconnect sql=new sqlconnect();
+		sql.getConnection();
+	}
     public static Connection getConnection(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ffc","root", "root"); 
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ffc","root", "3377"); 
+
             return con;
         } catch( Exception e ) {
             return null;
@@ -24,10 +33,17 @@ public class sqlconnect {
     }
     
     public void sqlclose(){
-        try {
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(sqlconnect.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
+		//在处理完结果集的时候再关闭连接，关掉连接后处理结果集会发生此错误。
+		if(ghysql !=null){
+			try{
+				ghysql.close();
+				System.out.println("释放并关闭了sql空间");
+			}catch(SQLException e){
+				System.err.println(e.getMessage());
+			}
+			ghysql=null;
+		}
+	}
+
 }
