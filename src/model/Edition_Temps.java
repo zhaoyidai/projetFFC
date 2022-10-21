@@ -16,6 +16,9 @@ import sql.sqlconnect;
  * @author utiae
  */
 public class Edition_Temps {
+    public Edition_Temps(){
+        
+    }
     public void Edition(){
         //Récupération des données
         ArrayList<Course> courses = new ArrayList<Course>();
@@ -196,11 +199,6 @@ public class Edition_Temps {
             e.printStackTrace();
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Accueil");
-        System.out.println("1 : Créer edition ");
-        System.out.println("2 : Enregistrer temps ");
-        System.out.print("Choix :");
-        int choixMenu = sc.nextInt();
         
         /*
         * 			Enregistrer les temps
@@ -271,4 +269,9 @@ public class Edition_Temps {
         //Fini
     }
     
+    public static void main(String args[]){
+        Edition_Temps e = new Edition_Temps();
+        e.Temps();
+        
+    }
 }
