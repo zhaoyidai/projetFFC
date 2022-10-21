@@ -158,7 +158,7 @@ public class PresentInscription {
         String nationaliteE=scan.next();
         System.out.println("Saisir votre email ");
         String mail=scan.next();
-        InscriptionEquipe e1=new InscriptionEquipe(nomEquipe,nomCos,nationaliteE,mail);
+        InscriptionEquipe e1=new InscriptionEquipe(nomEquipe);
         
         
 //        INSERT INTO `ffc`.`equipe`  VALUES ('11', '1', 'VD', 'VD', 'VD');
@@ -391,7 +391,7 @@ public class PresentInscription {
             Preparesql=conn.prepareStatement(re);
 			ResultSet res=Preparesql.executeQuery();
 			
-//			Enregistrer le temps d'un coureur d'une etape
+//Enregistrer le temps d'un coureur d'une etape
                         
 			while (res.next()) {	
 				int ide=res.getInt("idEtape");
@@ -434,18 +434,127 @@ public class PresentInscription {
         for(InscriptionCoureur ic:InscriptionCoureurs){
             ed1.inscrireCoureur(ic);
         }
-        return ed1;
+//        return ed1;
         
+        //commencer instancier equipe
+//        liste de numEquipe
+        String reidEquipe="select numEquipe from equipe where codeEdition='"+numEdition+"';";
+        ArrayList<String> numequipes=new ArrayList();
+        try {
+            
+            Preparesql=conn.prepareStatement(reidEquipe);
+			ResultSet res=Preparesql.executeQuery();
+			
+//			System.out.println(Value_sql);
+                        
+			while (res.next()) {	
+				numequipes.add(res.getString("numEquipe"));
+  
+			}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+        
+//        instancier les equipes
+//        ArrayList<InscriptionEquipe> equipes=new ArrayList();
+        
+        for(String nuE:numequipes){
+                            
+            try {
+            String reEquipe="select nomEquipe from equipe where numEquipe='"+nuE+"';";
+            Preparesql=conn.prepareStatement(reEquipe);
+			ResultSet res=Preparesql.executeQuery();
+
+			if (res.next()) {	
+                            InscriptionEquipe e=new InscriptionEquipe(res.getString("nomEquipe"));
+                            ed1.inscrireEquipe(e);
+//                            equipes.add(e);
+                            String rescompo="select numCoureur from composer where numEquipe='"+nuE+"';";
+                            try {
+                                    Preparesql=conn.prepareStatement(rescompo);
+                                                ResultSet res1=Preparesql.executeQuery();
+
+                                                while (res1.next()) {	
+                                                    int intC=res1.getInt("numCoureur");
+                                                    for(InscriptionCoureur ic:InscriptionCoureurs){
+                                                        int numccc=ic.getNumInsCoureur();
+                                                        if(numccc==intC){
+                                                            e.inviterCoureur(ic);
+                                                        }
+                                                    }
+
+                                                }
+                                } catch (Exception e1) {
+                                        e1.printStackTrace();
+                                }
+                            
+
+			}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+        }
+//        ed1.enregistrerClassementEtapeE(etapeTest);
+
+        
+        
+        return ed1;
     }
     public void classementE(){
         Edition ed1=this.instInscriptionCoureur();
         ArrayList<Etape> es=ed1.getCourse().getListeEtapes();
         Etape etapeTest=es.get(0);
-        ed1.enregistrerClassementEtape(etapeTest);
+        ed1.enregistrerClassementEtapeE(etapeTest);
+//        ed1.enregistrerClassementEtapeE(etapeTest);
         for(InscriptionCoureur ic:ed1.obtenirlisteCoureurs()){
             System.out.println("NumCoureur"+ic.getNumInsCoureur()+" "+ic.getC().getPrenomCoureur()+" "+ic.getC().getNomCoureur()+" classement etape COUREUR "+ic.getClassementEta().get(etapeTest).getClassementC());
         }
+        for(InscriptionEquipe ie:ed1.obtenirListeEquipes()){
+            System.out.println(ie.getNomEquipe()+" Temps "+ie.getClassementE().get(etapeTest).getTempsE()+" classement EE "+ie.getClassementE().get(etapeTest).getClassementE());
+            
+        } 
     }
     
+    public void classementEdition(){
+        Edition ed1=this.instInscriptionCoureur();
+//        ArrayList<Etape> es=ed1.getCourse().getListeEtapes();
+        ed1.enregistrerClassementGC();
+        ed1.enregistrerClassementGE();
+        for(InscriptionCoureur ic:ed1.obtenirlisteCoureurs()){
+            System.out.println(ic.getNumInsCoureur()+" Temps "+ic.getTempstoC()+" classement GC "+ic.getClassementEdition());
+            
+        }
+        for(InscriptionEquipe ie:ed1.obtenirListeEquipes()){
+            System.out.println(ie.getNomEquipe()+" Temps "+ie.getTempsTE()+" classement GE "+ie.getClassementEdition());
+            
+        }
+    }
+    
+    
+    
+    public void classementEE(){
+    
+        Edition ed1=this.instInscriptionCoureur();
+        ArrayList<Etape> es=ed1.getCourse().getListeEtapes();
+        Etape etapeTest=es.get(0);
+        ed1.enregistrerClassementEtapeE(etapeTest);
+        for(InscriptionEquipe ie:ed1.obtenirListeEquipes()){
+            System.out.println(ie.getNomEquipe()+" Temps "+ie.getClassementE().get(etapeTest).getTempsE()+" classement EE "+ie.getClassementE().get(etapeTest).getClassementE());
+            
+        } 
+    }
+    
+    public void classementEditionE(){
+        Edition ed1=this.instInscriptionCoureur();
+        ArrayList<Etape> es=ed1.getCourse().getListeEtapes();
+        for(Etape ee:es){
+            ed1.enregistrerClassementEtapeE(ee);
+        }
+
+        for(InscriptionEquipe ie:ed1.obtenirListeEquipes()){
+            System.out.println(ie.getNomEquipe()+" Temps "+ie.getTempsTE()+" classement GE "+ie.getClassementEdition());
+            
+        }
+    }
     
 }

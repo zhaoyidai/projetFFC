@@ -28,15 +28,16 @@ public class InscriptionEquipe {
     protected float tempsTE;
     protected int classementEdition;
     
-    public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteE,String contactCor){
+//    public InscriptionEquipe(String nomEquipe,String nomCorrespondant,String nationaliteE,String contactCor){
+    public InscriptionEquipe(String nomEquipe){
         this.classementE = new Hashtable();
 //        this.dateInsE= new Date();
         this.numE=ID_GENE;
         ID_GENE++;
         this.nomEquipe=nomEquipe;
-        this.nomCorrespondant=nomCorrespondant;
-        this.nationaliteE=nationaliteE;
-        this.contactCor=contactCor;
+//        this.nomCorrespondant=nomCorrespondant;
+//        this.nationaliteE=nationaliteE;
+//        this.contactCor=contactCor;
         this.etatE="en constitution";
         this.coureurs=new ArrayList();
         //this.vehicules=new ArrayList();
@@ -55,6 +56,7 @@ public class InscriptionEquipe {
     public void inviterCoureur(InscriptionCoureur ic){
         if(this.coureurs.size()<=10){
             ic.invitation=this;
+            this.coureurs.add(ic);
         }
         
     }
