@@ -43,6 +43,10 @@ public class Etape {
     public Sprint[] obtenirListeSprints(){
         return this.sprints;
     }
+
+    public int getIdEtape() {
+        return idEtape;
+    }
     
     //Retourne tous les cols de l'étape
     public Col[] obtenirListeCols(){
