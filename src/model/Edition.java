@@ -33,8 +33,8 @@ public class Edition {
     protected String etatClassement;
     
     //Constructeur
-    public Edition(){
-//    public Edition(String dateDebutEdition, String dateFinEdition){
+//    public Edition(){
+    public Edition(String dateDebutEdition, String dateFinEdition){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
 //        this.course=course;

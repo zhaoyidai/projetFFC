@@ -410,8 +410,26 @@ public class PresentInscription {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
+        Edition ed1=null;
 //        Instancier Edition
-        Edition ed1=new Edition();
+        try {
+            Preparesql=conn.prepareStatement("select datedebutEdition,datefinEdition from edition where codeEdition='"+numEdition+"';");
+			ResultSet res=Preparesql.executeQuery();
+			
+
+                        
+			if (res.next()) {
+//            numCoureur, nomCOureur, prenomCoureur, dateNaissance, groupeSanguin, rhesus, nationaliteC
+//String nomCoureur,String prenomCoureur
+                            String debut=res.getString("datedebutEdition");
+                            String fin=res.getString("datefinEdition");
+                            ed1=new Edition(debut,fin);
+                            
+			}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+//        Edition ed1=new Edition();
         ed1.setCourse(course1);
         for(InscriptionCoureur ic:InscriptionCoureurs){
             ed1.inscrireCoureur(ic);
@@ -420,8 +438,7 @@ public class PresentInscription {
         
     }
     public void classementE(){
-        Edition ed1=new Edition();
-        ed1=this.instInscriptionCoureur();
+        Edition ed1=this.instInscriptionCoureur();
         ArrayList<Etape> es=ed1.getCourse().getListeEtapes();
         Etape etapeTest=es.get(0);
         ed1.enregistrerClassementEtape(etapeTest);

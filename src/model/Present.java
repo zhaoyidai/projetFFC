@@ -23,6 +23,7 @@ public class Present {
             System.out.println("3.inscrire une equipe");
             System.out.println("4.ajouter un coureur");
             System.out.println("5.accepter ou refuser pour une ivitation equipe");
+            System.out.println("6.consulter le classement general pour les coureur");
             System.out.println("10.Consulter course");
             System.out.println("!!!!Saisir 0 pour finir!!!!");
             Scanner scan=new Scanner(System.in);
