@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import sql1.sqlconnect;
+import sql.sqlconnect;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
