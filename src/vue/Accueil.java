@@ -186,12 +186,8 @@ public class Accueil extends javax.swing.JFrame {
     private void editionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editionMouseClicked
         // TODO add your handling code here:
         OrganisationEdition a;
-        try {
-            a = new OrganisationEdition();
-            a.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        a = new OrganisationEdition();
+        a.setVisible(true);
         
     }//GEN-LAST:event_editionMouseClicked
 
