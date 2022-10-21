@@ -17,7 +17,7 @@ import sql.sqlconnect;
  */
 public class Edition_Temps {
     
-    public void edition(){
+    public static void main(String[] args) {
         //Récupération des données
         ArrayList<Course> courses = new ArrayList<Course>();
         ArrayList<Integer> codesCourse = new ArrayList<Integer>();
@@ -53,8 +53,12 @@ public class Edition_Temps {
                     String dateFin = rsl.getString("dateFinEdition");
                     int codeCourse = rsl.getInt("codeCourse");
                     //On créer une nouvelle editon pour l'objet course
-                    courses.get(i).ajouterEdition(new Edition(dateDebut,dateFin));
-                    courses.get(i).getListeEditions().get(j).setCourse(courses.get(i));
+                    //Ajoute une édition à la course
+                    Edition edition = new Edition(dateDebut,dateFin);
+                    edition.setCourse(courses.get(i));
+                    
+                    //Ajoute la course à l'édition
+                    courses.get(i).ajouterEdition(edition);
                     j=j+1;
                     codesEdition.add(rsl.getInt("codeEdition"));
                 }
@@ -130,7 +134,7 @@ public class Edition_Temps {
                     //Message de confirmation
                     System.out.println(i+"ligne inseree avec succes");
                 } catch (SQLException ex) {
-                    Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             case(2):
                 /*
@@ -182,11 +186,12 @@ public class Edition_Temps {
                         int codeEdition = res.getInt("codeEdition");
                         //On saisie leurs temps
                         System.out.print("Coureur : "+ numCoureur +" Temps : ");
-                        float temps = sc.nextFloat();  
+                        float temps = sc.nextFloat(); 
+                        int idEtape =courses.get(choixCourseET-1).getListeEtapes().get(choixEtape-1).getIdEtape();
                         //classercoureuretape
                         //On enregsitre dans la bd
                         //Requete d'insertion
-                        String queryNewTemps = "insert into classercoureuretape(numCoureur,codeEdition,idEtape,tempsCE) values('"+numCoureur +"','"+codeEdition +"','"+ courses.get(choixCourseET-1).getListeEtapes().get(choixEtape).getIdEtape() +"','"+ temps +"')";
+                        String queryNewTemps = "insert into classercoureuretape(numCoureur,codeEdition,idEtape,tempsCE) values('"+numCoureur +"','"+codeEdition +"','"+ idEtape +"','"+ temps +"')";
                         System.out.println(queryNewTemps);
                         try {
                             PreparedStatement stmt = conn.prepareStatement(queryNewTemps);
@@ -194,11 +199,12 @@ public class Edition_Temps {
                             //Message de confirmation
                             System.out.println(i+"ligne inseree avec succes");
                         } catch (SQLException ex) {
-                            Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        
                     }
                 } catch (SQLException ex) {
-                    Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 //Fini
         }  
