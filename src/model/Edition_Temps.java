@@ -134,7 +134,7 @@ public class Edition_Temps {
                     //Message de confirmation
                     System.out.println(i+"ligne inseree avec succes");
                 } catch (SQLException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
                 }
             case(2):
                 /*
@@ -199,12 +199,12 @@ public class Edition_Temps {
                             //Message de confirmation
                             System.out.println(i+"ligne inseree avec succes");
                         } catch (SQLException ex) {
-                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
                     }
                 } catch (SQLException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 //Fini
         }  
