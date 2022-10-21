@@ -33,6 +33,26 @@ public class Course {
         this.editions= new ArrayList<Edition>();
         this.etapes= new ArrayList<Etape>();
     }
+
+    public String getVilleDepartC() {
+        return villeDepartC;
+    }
+
+    public String getVilleArriveeC() {
+        return villeArriveeC;
+    }
+
+    public String getPaysDepartC() {
+        return paysDepartC;
+    }
+
+    public String getPaysArriveeC() {
+        return paysArriveeC;
+    }
+
+    public String getTypeCourse() {
+        return typeCourse;
+    }
     
     //Les méthodes de la classe Course
     

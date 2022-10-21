@@ -34,6 +34,10 @@ public class Etape {
         this.cols=new Col[5];
     }
     //Les méthodes de la classe Etape
+
+    public int getIdEtape() {
+        return idEtape;
+    }
     
     public void afficherTout(){
         System.out.println("Ville depart : "+this.villeDepartEtape + " | Ville arrivee : "+ this.villeArriveeEtape +" | Distance : "+ this.distance +"km" );

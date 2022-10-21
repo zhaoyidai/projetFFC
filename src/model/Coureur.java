@@ -102,11 +102,7 @@ public class Coureur {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}finally{
-            try {
-                con.sqlclose();//关闭数据库节省系统资源
-            } catch (SQLException ex) {
-                Logger.getLogger(Coureur.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            con.sqlclose();//关闭数据库节省系统资源
 			
 	}
     }
