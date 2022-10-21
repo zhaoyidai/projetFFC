@@ -40,8 +40,7 @@ public class Accueil extends javax.swing.JFrame {
         classements = new javax.swing.JButton();
         conformite = new javax.swing.JButton();
         validerClassement = new javax.swing.JButton();
-        temps = new javax.swing.JButton();
-        eliminer = new javax.swing.JButton();
+        jury = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
@@ -86,8 +85,18 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         courses.setText("Consulter courses");
+        courses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                coursesMouseClicked(evt);
+            }
+        });
 
         classements.setText("Consulter classement");
+        classements.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                classementsMouseClicked(evt);
+            }
+        });
 
         conformite.setText("Conformité inscriptions");
         conformite.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,10 +111,18 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         validerClassement.setText("Valider classement");
+        validerClassement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                validerClassementMouseClicked(evt);
+            }
+        });
 
-        temps.setText("Enregistrer temps");
-
-        eliminer.setText("Eliminer coureur");
+        jury.setText("Jury");
+        jury.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                juryMouseClicked(evt);
+            }
+        });
 
         jButton5.setText("Sprint");
 
@@ -121,23 +138,20 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edition)
-                    .addComponent(inscrireCoureur)
-                    .addComponent(inscrireEquipe)
-                    .addComponent(courses)
-                    .addComponent(classements))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(inscrireCoureur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inscrireEquipe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(courses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(classements, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(conformite)
-                    .addComponent(validerClassement)
-                    .addComponent(temps)
-                    .addComponent(eliminer)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton6)))
-                .addGap(94, 94, 94))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(validerClassement, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jury, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(conformite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(101, 101, 101))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,15 +169,14 @@ public class Accueil extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inscrireEquipe)
-                    .addComponent(temps))
+                    .addComponent(jury))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(courses)
-                    .addComponent(eliminer))
+                    .addComponent(jButton5))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(classements)
-                    .addComponent(jButton5)
                     .addComponent(jButton6))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
@@ -220,6 +233,34 @@ public class Accueil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_conformiteMouseClicked
 
+    private void coursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coursesMouseClicked
+        // TODO add your handling code here:
+        ConsulterCourse consCourse = new ConsulterCourse();
+        consCourse.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_coursesMouseClicked
+
+    private void classementsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classementsMouseClicked
+        // TODO add your handling code here:
+        ConsulterClassementCourse cGE = new ConsulterClassementCourse();
+        cGE.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_classementsMouseClicked
+    //Afficher Classement 
+    private void validerClassementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_validerClassementMouseClicked
+        // TODO add your handling code here:
+        ValiderClassement validerClass = new ValiderClassement();
+        validerClass.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_validerClassementMouseClicked
+    //Afficher le formulaire pour enregistrer le temps des coureurs
+    private void juryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_juryMouseClicked
+        // TODO add your handling code here:
+        AccueilJury aj = new AccueilJury();
+        aj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_juryMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -244,13 +285,12 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JButton conformite;
     private javax.swing.JButton courses;
     private javax.swing.JButton edition;
-    private javax.swing.JButton eliminer;
     private javax.swing.JButton inscrireCoureur;
     private javax.swing.JButton inscrireEquipe;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton temps;
+    private javax.swing.JButton jury;
     private javax.swing.JButton validerClassement;
     // End of variables declaration//GEN-END:variables
 }

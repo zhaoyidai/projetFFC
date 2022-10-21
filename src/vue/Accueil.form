@@ -30,26 +30,22 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="edition" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="inscrireCoureur" min="-2" max="-2" attributes="0"/>
-                  <Component id="inscrireEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="courses" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="classements" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="inscrireCoureur" max="32767" attributes="0"/>
+                  <Component id="inscrireEquipe" alignment="0" max="32767" attributes="0"/>
+                  <Component id="courses" alignment="0" max="32767" attributes="0"/>
+                  <Component id="classements" alignment="0" max="32767" attributes="0"/>
+                  <Component id="edition" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="186" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="conformite" min="-2" max="-2" attributes="0"/>
-                  <Component id="validerClassement" min="-2" max="-2" attributes="0"/>
-                  <Component id="temps" min="-2" max="-2" attributes="0"/>
-                  <Component id="eliminer" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
+                  <Component id="validerClassement" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jury" alignment="0" max="32767" attributes="0"/>
+                  <Component id="conformite" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButton6" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,17 +67,16 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="inscrireEquipe" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="temps" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jury" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="courses" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="eliminer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="classements" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="136" max="32767" attributes="0"/>
@@ -126,11 +121,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Consulter courses"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="coursesMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="classements">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consulter classement"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="classementsMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="conformite">
       <Properties>
@@ -145,16 +146,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Valider classement"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="validerClassementMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="temps">
+    <Component class="javax.swing.JButton" name="jury">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enregistrer temps"/>
+        <Property name="text" type="java.lang.String" value="Jury"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="eliminer">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminer coureur"/>
-      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="juryMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>

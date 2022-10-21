@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
+import sql.sqlconnect;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Random;
 import javax.lang.model.SourceVersion;
+
 
 /**
  *
@@ -31,19 +33,37 @@ public class Edition {
     protected String etatClassement;
     
     //Constructeur
-    public Edition(String dateDebutEdition, String dateFinEdition,Course course){
+//    public Edition(){
+    public Edition(String dateDebutEdition, String dateFinEdition){
         this.dateDebutEdition=dateDebutEdition;
         this.dateFinEdition=dateFinEdition;
-        this.course=course;
+//        this.course=course;
         this.coureurs= new ArrayList<InscriptionCoureur>();
         this.equipes= new ArrayList<InscriptionEquipe>();
         this.meilleurGrimpeurs = new ArrayList<Coureur>();
         this.meilleurSprinteurs = new ArrayList<Coureur>();
-        this.course.editions.add(this);
+//        this.course.editions.add(this);
     }
     
     public String getDateDebutEdition(){
         return this.dateDebutEdition;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setDateDebutEdition(String dateDebutEdition) {
+        this.dateDebutEdition = dateDebutEdition;
+    }
+
+    public void setDateFinEdition(String dateFinEdition) {
+        this.dateFinEdition = dateFinEdition;
+    }
+    
+    public void setCourse(Course course) {
+        this.course = course;
+        this.course.editions.add(this);
     }
     
     public String getDateFinEdition(){
@@ -240,6 +260,51 @@ public class Edition {
         }
     }
     
+    public void uploadEdition(){
+        sqlconnect con=new sqlconnect();//sqlconnect 实例化
+	Connection conn;  //定义Connection型的conn
+    
+        conn=(Connection) con.getConnection();//链接数据库
+        String courseid = "0";
+        //obtenir le numero de course depuis le nom de course
+        try {
+            Statement st;
+            st = conn.createStatement();
+            
+            String Value_sql="select codeCourse from course where nomCourse = '"+this.course.getNomCourse()+"';";
+            ResultSet rs = st.executeQuery(Value_sql);//执行预处理语句
+            
+            while(rs.next()){
+            courseid= rs.getString("CodeCourse"); 
+            System.out.println("\tid= " + courseid);
+            }//end while
+
+
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally{
+		con.sqlclose();//关闭数据库节省系统资源
+			
+	}
+        
+        //saisir les infos d'une Edition dans la BD
+	try {
+            Statement st;
+            st = conn.createStatement();
+            
+            String Value_sql="insert into Edition (codeCourse, dateDebutEdition, dateFinEdition) values ("+courseid+", "+null+", "+null+")";
+            
+            st.executeUpdate(Value_sql);//执行预处理语句
+
+	
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally{
+		con.sqlclose();//关闭数据库节省系统资源
+			
+	}
+    }
     public Coureur getMeilleurGrimpeur(){
         return this.meilleurGrimpeur;
     }

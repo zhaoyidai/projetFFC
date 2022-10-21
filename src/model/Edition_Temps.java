@@ -47,12 +47,15 @@ public class Edition_Temps {
                 String queryEdition= "select * from edition where codeCourse="+res.getInt("CodeCourse");
                 Preparesql=conn.prepareStatement(queryEdition);
                 ResultSet rsl = Preparesql.executeQuery();
+                int j=0;
                 while (rsl.next()){
                     String dateDebut = rsl.getString("dateDebutEdition");
                     String dateFin = rsl.getString("dateFinEdition");
                     int codeCourse = rsl.getInt("codeCourse");
                     //On créer une nouvelle editon pour l'objet course
-                    courses.get(i).ajouterEdition(new Edition(dateDebut,dateFin,courses.get(i)));
+                    courses.get(i).ajouterEdition(new Edition(dateDebut,dateFin));
+                    courses.get(i).getListeEditions().get(j).setCourse(courses.get(i));
+                    j=j+1;
                     codesEdition.add(rsl.getInt("codeEdition"));
                 }
                 // On ajoutes les etapes de chaque course

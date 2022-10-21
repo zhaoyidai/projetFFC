@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sql.sqlconnect;
+
 /**
  *
  * @author zdai2
@@ -25,13 +25,13 @@ public class Coureur {
     protected String rhesus;
     protected String nationaliteC;
     
-    public Coureur(String nomCoureur,String prenomCoureur,int annee,int mois,int jour,String nationaliteC,String groupeSanguin,String rhesus){
+    public Coureur(String nomCoureur,String prenomCoureur){
         this.nomCoureur=nomCoureur;
         this.prenomCoureur=prenomCoureur;
-        this.dateNaissance.set(annee, mois, jour);
-        this.groupeSanguin=groupeSanguin;
-        this.rhesus=rhesus;
-        this.nationaliteC=nationaliteC;
+//        this.dateNaissance.set(annee, mois, jour);
+//        this.groupeSanguin=groupeSanguin;
+//        this.rhesus=rhesus;
+//        this.nationaliteC=nationaliteC;
         this.numCoureur=ID_GEN;
         ID_GEN++;
     }
@@ -46,10 +46,14 @@ public class Coureur {
         this.prenomCoureur = prenomCoureur;
     }
 
-    public void setDateNaissance(Calendar dateNaissance) {
-        this.dateNaissance = dateNaissance;
+    public void setDateNaissance(int annee,int mois,int jour) {
+        this.dateNaissance.set(annee, mois, jour);
     }
 
+    public void setNationaliteC(String nationaliteC) {
+        this.nationaliteC = nationaliteC;
+    }
+    
     public void setGroupeSanguin(String groupeSanguin) {
         this.groupeSanguin = groupeSanguin;
     }
@@ -95,7 +99,7 @@ public class Coureur {
             st = conn.createStatement();
             
             String Value_sql="insert into coureur values ('"+this.numCoureur+"','" +this.nomCoureur+"','"+this.prenomCoureur+"',"+null+",'"+this.groupeSanguin+"','"+this.rhesus+"','"+this.nationaliteC+"');";
-            System.out.println(Value_sql);
+//            System.out.println(Value_sql);
             st.executeUpdate(Value_sql);//执行预处理语句
 
 	
