@@ -193,7 +193,6 @@ public class Edition_Temps {
                         } catch (SQLException ex) {
                             Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(Edition_Temps.class.getName()).log(Level.SEVERE, null, ex);
